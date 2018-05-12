@@ -1,0 +1,29 @@
+[33mcommit 228337bca3c3a032fc59d75f5f73cbd57e379612[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: Coddyy <abhrasarkar.official@gmail.com>
+Date:   Fri May 11 17:04:53 2018 +0530
+
+    Dashboard design added
+
+[33mcommit 5354fe2ece99c6d3888b3d14f8c6147821fd6866[m
+Author: Coddyy <abhrasarkar.official@gmail.com>
+Date:   Fri May 11 15:59:15 2018 +0530
+
+    Main controller and Main_M model created. DB joined. From connected
+
+[33mcommit 735886fb049b33712ed37fe73de0702fc1cb927d[m
+Author: Coddyy <abhrasarkar.official@gmail.com>
+Date:   Fri May 11 12:38:59 2018 +0530
+
+    Project Dashboard and Home design Completed
+
+[33mcommit 0e2a053ecaf7b56167863095636599ca4b8b259c[m
+Author: Coddyy <abhrasarkar.official@gmail.com>
+Date:   Fri May 11 10:45:49 2018 +0530
+
+    First Commit
+
+[33mcommit ab40cb13bf263d6705f8e86a12f9472e990d4325[m
+Author: Coddyy <33616520+Coddyy@users.noreply.github.com>
+Date:   Fri May 11 10:19:11 2018 +0530
+
+    Initial commit
