@@ -1,4 +1,3 @@
-
 <style type="text/css">
     
 .red{
@@ -12,7 +11,14 @@
     border: 1px solid GREY;
     }
 </style>
+<?php 
 
+use App\Main_M as Main_M;
+$Main_M = new Main_M();
+$employee=$Main_M->all_non_asigned_employees(); 
+
+
+?>
 <div class="container">
 <div class="col-md-6">
 
@@ -25,30 +31,33 @@
     @endif
 
     <div class="form-area">  
-        <form role="form" action="{{ route('Insert') }}" method="POST">
+        <form role="form" action="{{ route('taskInsert') }}" method="POST">
         <br style="clear:both">
         {{ csrf_field() }}
-                    <h3 style="margin-bottom: 25px; text-align: center;">Add Car</h3>
-                    <div class="form-group">
-                        <input type="text" class="form-control" id="email" name="car_number" placeholder="Car Number" required>
-                    </div>
-
-    				<div class="form-group">
-						<input type="text" class="form-control" id="name" name="owner_name" placeholder="Name" required>
-					</div>
-					
+                    <h3 style="margin-bottom: 25px; text-align: center;">Asign Task</h3>
 					<div class="form-group">
-						<input type="text" class="form-control" id="mobile" name="owner_mobile" placeholder="Mobile Number" required>
-					</div>
-					<!-- <div class="form-group">
-						<input type="text" class="form-control" id="subject" name="subject" placeholder="Subject" required>
+                        <input type="text" class="form-control" id="email" name="task" placeholder="Task" required>
+                    </div>
+					<div class="form-group">
+						<input type="number" class="form-control" id="mobile" name="hours" placeholder="Time in hours" required>
 					</div>
                     <div class="form-group">
-                    <textarea class="form-control" type="textarea" id="message" placeholder="Message" maxlength="140" name="msg" rows="7"></textarea>
-                        <span class="help-block"><p id="characterLeft" class="help-block ">You have reached the limit</p></span>                    
-                    </div> -->
+                        <select name="emp_id" class="form-control">
+                            <option value="">--Select Role--</option>
+                            <?php 
+                            echo '<pre>';
+                            print_r($employee);//die();
+                            foreach ($employee as $key => $value) 
+                            { ?>
+
+                                <option value="<?php echo $value->id;?>"><?php echo $value->name;?></option>
+
+                            <?php } ?>
+                            ?>
+                        </select>
+                    </div>
             
-        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Add</button>
+        <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Asign</button>
         </form>
     </div>
 </div>

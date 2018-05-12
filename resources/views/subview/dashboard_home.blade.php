@@ -1,615 +1,853 @@
 <style type="text/css">
-    body{background-color: #ecf0f1;}
-
-.navbar-inverse {
-    background-color: #2C3E50;
-    border-color: #2C3E50;
-}
-
-.navbar {
-    position: relative;
-    min-height: 50px;
-    margin-bottom: 0px;
-    border: 0px solid transparent;
-}
-.navbar-nav > li > a {
-    padding-top: 20px;
-    padding-bottom: 10px;
-    line-height: 20px;
-}
-@media (min-width: 768px){
-
-.navbar {
-    border-radius: 0px;
-}}
-
-.navbar-brand {
-    float: left;
-    height: auto;
-    padding: 15px 15px;
-    font-size: 18px;
-    line-height: 20px;
-}
-.sidebar-toggle {
-    color: #fff;
-    font-size: 28px;
-    display: inline-block;
-    padding: 3px 22px;
-}
-@media (min-width:768px){
-.container-1{width:15%;float:left;}
-.container-2{width:100%;float: left;}
-}
-
-@media (max-width:768px){
-.container-1{width:100%;}
-.container-2{width:100%;}
-}
-.container-1:after,
-.container-2:before,
-{
-  display: table;
-  content: " ";
-}
-.container-1:after,
-.container-2:after,
-{clear: both;}
-
-.container-1{display: none;}
-/*navbar-right=====START==========*/
-
-.social-icon{margin:0px;padding:0px;}
-.social-icon li {margin: 0px;padding: 0px;list-style-type: none;}
-.social-icon li a {
-    display: block;
-    padding: 15px 14px;
-    text-decoration:none;
-}
-.social-icon li a:focus{
-   color:#fff;
-    text-decoration:none;
-}
-
-.messages-link{
-        color: #fff !important;
-    background: #16a085 !important;
-
-}
-
-.alerts-link{
-        color: #fff !important;
-    background: #f39c12 !important;
-
-}
-
-.tasks-link{
-        color: #fff !important;
-    background: #2980b9 !important;
-
-}
-
-.user-link{
-        color: #fff !important;
-    background: #E74C3C !important;
-
-}
- .number {
-    position: absolute;
-    bottom: 25px;
-    left: 3px;
-    width: 20px;
-    height: 20px;
-    padding-right: 1px;
-    border-radius: 50%;
-    text-align: center;
-    font-size: 11px;
-    line-height: 20px;
-    background-color: #2c3e50;
-}
-
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: -105px;
-    z-index: 1000;
-    display: none;
-    float: left;
-    min-width: 160px;
-    padding: 5px 0;
-    margin: 2px 0 0;
-    font-size: 14px;
-    text-align: left;
-    list-style: none;
-    background-color: #fff;
-    -webkit-background-clip: padding-box;
-    background-clip: padding-box;
-    border: 1px solid #ccc;
-    border: 1px solid rgba(0, 0, 0, .15);
-    border-radius: 4px;
-    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-    box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
-}
-/*navbar-right=======END========*/
-
-/*sidebar-toggle=============*/
-.sidebar-toggle:hover, .sidebar-toggle:focus {
-    color: #fff;
-    text-decoration: underline;
-}
-
-
-/*sidr-NAVBAR=======START========*/
-.navbar-nav-1{width: 100%;background-color:#34495E;height:auto;overflow: hidden;z-index: 1020;position: relative;}
-
-.side-user {
-    display: block;
-    width: 100%;
-    padding: 15px;
-    border-top: none !important;
-    border-bottom: 1px solid #142638;
-    text-align: center;
-}
-.close-btn {
-    position: absolute;
-    z-index: 99;
-    color: #fff;
-    font-size: 31px;
-    top: 0px;
-    left: 223px;    
-    display: none;
-    padding: 0px;
-    cursor: pointer;
-}
-.close-btn .fa-window-close{color:#fff;font-size: 25px;}
-.welcome {
-    margin: 0;
-    font-style: italic;
-    color: #9aa4af;
-}
-
-.name {
-    margin: 0;
-    font-family: "Ubuntu","Helvetica Neue",Helvetica,Arial,sans-serif;
-    font-size: 20px;
-    font-weight: 300;
-    color: #ccd1d7;
-}
-.side-user a{
-   color:#fff;
-}
-.nav-search{border-top: 1px solid #54677a;}
-.nav-search .form-control{border: 1px solid #000;border-radius: 0px;}
-.nav-search .btn{border: 1px solid #000;border-radius: 0px;}
-
-.dashboard>a{
-    color:#fff;
-    }
-.side-nav li {
-    border-top: 1px solid #54677a;
-    border-bottom: 1px solid #142638;
-}
-
-.side-nav>li>a:active {
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.1);
-    outline: none;
-    color: #fff;
-    background-color: #34495e;
-}
-
-.panel {
-    margin-bottom: 0;
-    border: none;
-    border-radius: 0;
-    background-color: transparent;
-    box-shadow: none;
-}
-
-.panel>a{
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    color: #fff;
-}
-
-.panel>ul>li>a {
-    position: relative;
-    display: block;
-    padding: 10px 15px;
-    color: darkcyan;
-    background: black;
-}
-.nav > li > a:hover, .nav > li > a:focus {
-    text-decoration: none;
-    background-color: #3d566e;
-}
-/*sidr-NAVBAR=======END========*/
-@media (min-width: 768px){
-
-#page-wrapper {
-   
-    padding: 0 30px;
-    min-height: 1300px;
-    border-left: 1px solid #2c3e50;
-}
-}
-
-#page-wrapper {
-    padding: 0 15px;
-    border: none;
-    
-}
-
-.date-picker{    
-    border-color: #138871;
-    color: #fff;
-    background-color: #149077;
-    margin-top: -7px;
-    border-radius: 0px;
-    margin-right: -15px;
-}
-
-#page-wrapper .breadcrumb {
-    padding: 8px 15px;
-    margin-bottom: 20px;
-    list-style: none;
-    background-color: #e0e7e8;
-    border-radius: 0px;
-    
-}
-
-
-
-
-@media (min-width: 768px){
-.circle-tile {
-    margin-bottom: 30px;
-}
-}
-
-.circle-tile {
-    margin-bottom: 15px;
-    text-align: center;
-}
-
-.circle-tile-heading {
-    position: relative;
-    width: 80px;
-    height: 80px;
-    margin: 0 auto -40px;
-    border: 3px solid rgba(255,255,255,0.3);
-    border-radius: 100%;
-    color: #fff;
-    transition: all ease-in-out .3s;
-}
-
-/* -- Background Helper Classes */
-
-/* Use these to cuztomize the background color of a div. These are used along with tiles, or any other div you want to customize. */
-
- .dark-blue {
-    background-color: #34495e;
-}
-
-.green {
-    background-color: #16a085;
-}
-
-.blue {
-    background-color: #2980b9;
-}
-
-.orange {
-    background-color: #f39c12;
-}
-
-.red {
-    background-color: #e74c3c;
-}
-
-.purple {
-    background-color: #8e44ad;
-}
-
-.dark-gray {
-    background-color: #7f8c8d;
-}
-
-.gray {
-    background-color: #95a5a6;
-}
-
-.light-gray {
-    background-color: #bdc3c7;
-}
-
-.yellow {
-    background-color: #f1c40f;
-}
-
-/* -- Text Color Helper Classes */
-
- .text-dark-blue {
-    color: #34495e;
-}
-
-.text-green {
-    color: #16a085;
-}
-
-.text-blue {
-    color: #2980b9;
-}
-
-.text-orange {
-    color: #f39c12;
-}
-
-.text-red {
-    color: #e74c3c;
-}
-
-.text-purple {
-    color: #8e44ad;
-}
-
-.text-faded {
-    color: rgba(255,255,255,0.7);
-}
-
-
-
-.circle-tile-heading .fa {
-    line-height: 80px;
-}
-
-.circle-tile-content {
-    padding-top: 50px;
-}
-.circle-tile-description {
-    text-transform: uppercase;
-}
-
-.text-faded {
-    color: rgba(255,255,255,0.7);
-}
-
-.circle-tile-number {
-    padding: 5px 0 15px;
-    font-size: 26px;
-    font-weight: 700;
-    line-height: 1;
-}
-
-.circle-tile-footer {
-    display: block;
-    padding: 5px;
-    color: rgba(255,255,255,0.5);
-    background-color: rgba(0,0,0,0.1);
-    transition: all ease-in-out .3s;
-}
-
-.circle-tile-footer:hover {
-    text-decoration: none;
-    color: rgba(255,255,255,0.5);
-    background-color: rgba(0,0,0,0.2);
-}
-
-
-.morning {
-    background: url(https://lh3.googleusercontent.com/-1YbV7nsVnX8/WMugaq-6BEI/AAAAAAAADSg/0wPfQ84vMUcCle_SkgiUDOumUKscMaA8QCL0B/w530-d-h353-p-rw/widget-bg-morning.jpg) center bottom no-repeat;
-    background-size: cover;
-}
-
-.time-widget {
-    margin-top: 5px;
-    overflow: hidden;
-    text-align: center;
-    font-size: 1.75em;
-}
-
-.time-widget-heading {
-    text-transform: uppercase;
-    font-size: .5em;
-    font-weight: 400;
-    color: #fff;
-}
-#datetime{color:#fff;}
-.tile-img {
-    text-shadow: 2px 2px 3px rgba(0,0,0,0.9);
-}
-
-.tile {
-    margin-bottom: 15px;
-    padding: 15px;
-    overflow: hidden;
-    color: #fff;
+    body { padding-top:20px; }
+.container {
+    max-width: 1200px;
+}
+.panel-body 
+.btn:not(.btn-block) { 
+    width:140px !important;
+    height:135px !important;
+    margin-bottom:10px !important;
+    vertical-align: middle !important;
+    text-align: center !important;
+    text-wrap: normal !important;
+    padding: 15px 0 0 0 !important; 
+}
+/* Font Size For Button Text */
+.glyphsize {
+    font-size:48px !important;
+}
+.panel-footer {
+    line-height:inherit !important;
+}
+/* Colours Used for Glyphicons and some text */
+.black { color: #000;}
+.red { color: #F00; }
+.dgreen { color: #060; }
+.green { color: #0F0; }
+.blue { color: #00F; }
+.mblue { color: #09F; }
+.yellow { color: #FF0;}
+.purple { color: #609;}
+.lilac { color: #C6F; }
+.orange { color: #F90; }
+.choc { color: #330;}
+
+/* Button Colours */
+.btn-dblue { 
+  color: #ffffff; 
+  background-color: #1B23BD; 
+  border-color: #000A7A; 
+} 
+ 
+.btn-dblue:hover, 
+.btn-dblue:focus, 
+.btn-dblue:active, 
+.btn-dblue.active, 
+.open .dropdown-toggle.btn-dblue { 
+  color: #ffffff; 
+  background-color: #18148C; 
+  border-color: #000A7A; 
+} 
+ 
+.btn-dblue:active, 
+.btn-dblue.active, 
+.open .dropdown-toggle.btn-dblue { 
+  background-image: none; 
+} 
+ 
+.btn-dblue.disabled, 
+.btn-dblue[disabled], 
+fieldset[disabled] .btn-dblue, 
+.btn-dblue.disabled:hover, 
+.btn-dblue[disabled]:hover, 
+fieldset[disabled] .btn-dblue:hover, 
+.btn-dblue.disabled:focus, 
+.btn-dblue[disabled]:focus, 
+fieldset[disabled] .btn-dblue:focus, 
+.btn-dblue.disabled:active, 
+.btn-dblue[disabled]:active, 
+fieldset[disabled] .btn-dblue:active, 
+.btn-dblue.disabled.active, 
+.btn-dblue[disabled].active, 
+fieldset[disabled] .btn-dblue.active { 
+  background-color: #1B23BD; 
+  border-color: #000A7A; 
+} 
+ 
+.btn-dblue .badge { 
+  color: #1B23BD; 
+  background-color: #ffffff; 
+}
+.btn-dred { 
+  color: #ffffff; 
+  background-color: #B50D2E; 
+  border-color: #69021F; 
+} 
+ 
+.btn-dred:hover, 
+.btn-dred:focus, 
+.btn-dred:active, 
+.btn-dred.active, 
+.open .dropdown-toggle.btn-dred { 
+  color: #ffffff; 
+  background-color: #7A2435; 
+  border-color: #69021F; 
+} 
+ 
+.btn-dred:active, 
+.btn-dred.active, 
+.open .dropdown-toggle.btn-dred { 
+  background-image: none; 
+} 
+ 
+.btn-dred.disabled, 
+.btn-dred[disabled], 
+fieldset[disabled] .btn-dred, 
+.btn-dred.disabled:hover, 
+.btn-dred[disabled]:hover, 
+fieldset[disabled] .btn-dred:hover, 
+.btn-dred.disabled:focus, 
+.btn-dred[disabled]:focus, 
+fieldset[disabled] .btn-dred:focus, 
+.btn-dred.disabled:active, 
+.btn-dred[disabled]:active, 
+fieldset[disabled] .btn-dred:active, 
+.btn-dred.disabled.active, 
+.btn-dred[disabled].active, 
+fieldset[disabled] .btn-dred.active { 
+  background-color: #B50D2E; 
+  border-color: #69021F; 
+} 
+ 
+.btn-dred .badge { 
+  color: #B50D2E; 
+  background-color: #ffffff; 
+}
+.btn-dgreen { 
+  color: #ffffff; 
+  background-color: #0DB548; 
+  border-color: #026926; 
+} 
+ 
+.btn-dgreen:hover, 
+.btn-dgreen:focus, 
+.btn-dgreen:active, 
+.btn-dgreen.active, 
+.open .dropdown-toggle.btn-dgreen { 
+  color: #ffffff; 
+  background-color: #287A24; 
+  border-color: #026926; 
+} 
+ 
+.btn-dgreen:active, 
+.btn-dgreen.active, 
+.open .dropdown-toggle.btn-dgreen { 
+  background-image: none; 
+} 
+ 
+.btn-dgreen.disabled, 
+.btn-dgreen[disabled], 
+fieldset[disabled] .btn-dgreen, 
+.btn-dgreen.disabled:hover, 
+.btn-dgreen[disabled]:hover, 
+fieldset[disabled] .btn-dgreen:hover, 
+.btn-dgreen.disabled:focus, 
+.btn-dgreen[disabled]:focus, 
+fieldset[disabled] .btn-dgreen:focus, 
+.btn-dgreen.disabled:active, 
+.btn-dgreen[disabled]:active, 
+fieldset[disabled] .btn-dgreen:active, 
+.btn-dgreen.disabled.active, 
+.btn-dgreen[disabled].active, 
+fieldset[disabled] .btn-dgreen.active { 
+  background-color: #0DB548; 
+  border-color: #026926; 
+} 
+ 
+.btn-dgreen .badge { 
+  color: #0DB548; 
+  background-color: #ffffff; 
+}
+.btn-mblue { 
+  color: #ffffff; 
+  background-color: #0DA1B5; 
+  border-color: #025D69; 
+} 
+ 
+.btn-mblue:hover, 
+.btn-mblue:focus, 
+.btn-mblue:active, 
+.btn-mblue.active, 
+.open .dropdown-toggle.btn-mblue { 
+  color: #6FF; 
+  background-color: #247A7A; 
+  border-color: #025D69; 
+} 
+ 
+.btn-mblue:active, 
+.btn-mblue.active, 
+.open .dropdown-toggle.btn-mblue { 
+  background-image: none; 
+} 
+ 
+.btn-mblue.disabled, 
+.btn-mblue[disabled], 
+fieldset[disabled] .btn-mblue, 
+.btn-mblue.disabled:hover, 
+.btn-mblue[disabled]:hover, 
+fieldset[disabled] .btn-mblue:hover, 
+.btn-mblue.disabled:focus, 
+.btn-mblue[disabled]:focus, 
+fieldset[disabled] .btn-mblue:focus, 
+.btn-mblue.disabled:active, 
+.btn-mblue[disabled]:active, 
+fieldset[disabled] .btn-mblue:active, 
+.btn-mblue.disabled.active, 
+.btn-mblue[disabled].active, 
+fieldset[disabled] .btn-mblue.active { 
+  background-color: #0DA1B5; 
+  border-color: #025D69; 
+} 
+ 
+.btn-mblue .badge { 
+  color: #0DA1B5; 
+  background-color: #ffffff; 
+}
+.btn-burnt { 
+  color: #ffffff; 
+  background-color: #B5690D; 
+  border-color: #694302; 
+} 
+ 
+.btn-burnt:hover, 
+.btn-burnt:focus, 
+.btn-burnt:active, 
+.btn-burnt.active, 
+.open .dropdown-toggle.btn-burnt { 
+  color: #fffccc; 
+  background-color: #7A5024; 
+  border-color: #694302; 
+} 
+ 
+.btn-burnt:active, 
+.btn-burnt.active, 
+.open .dropdown-toggle.btn-burnt { 
+  background-image: none; 
+} 
+ 
+.btn-burnt.disabled, 
+.btn-burnt[disabled], 
+fieldset[disabled] .btn-burnt, 
+.btn-burnt.disabled:hover, 
+.btn-burnt[disabled]:hover, 
+fieldset[disabled] .btn-burnt:hover, 
+.btn-burnt.disabled:focus, 
+.btn-burnt[disabled]:focus, 
+fieldset[disabled] .btn-burnt:focus, 
+.btn-burnt.disabled:active, 
+.btn-burnt[disabled]:active, 
+fieldset[disabled] .btn-burnt:active, 
+.btn-burnt.disabled.active, 
+.btn-burnt[disabled].active, 
+fieldset[disabled] .btn-burnt.active { 
+  background-color: #B5690D; 
+  border-color: #694302; 
+} 
+ 
+.btn-burnt .badge { 
+  color: #B5690D; 
+  background-color: #ffffff; 
+}
+.btn-grey { 
+  color: #ffffff; 
+  background-color: #A6A1AD; 
+  border-color: #605D70; 
+} 
+ 
+.btn-grey:hover, 
+.btn-grey:focus, 
+.btn-grey:active, 
+.btn-grey.active, 
+.open .dropdown-toggle.btn-grey { 
+  color: #ffffff; 
+  background-color: #413C47; 
+  border-color: #605D70; 
+} 
+ 
+.btn-grey:active, 
+.btn-grey.active, 
+.open .dropdown-toggle.btn-grey { 
+  background-image: none; 
+} 
+ 
+.btn-grey.disabled, 
+.btn-grey[disabled], 
+fieldset[disabled] .btn-grey, 
+.btn-grey.disabled:hover, 
+.btn-grey[disabled]:hover, 
+fieldset[disabled] .btn-grey:hover, 
+.btn-grey.disabled:focus, 
+.btn-grey[disabled]:focus, 
+fieldset[disabled] .btn-grey:focus, 
+.btn-grey.disabled:active, 
+.btn-grey[disabled]:active, 
+fieldset[disabled] .btn-grey:active, 
+.btn-grey.disabled.active, 
+.btn-grey[disabled].active, 
+fieldset[disabled] .btn-grey.active { 
+  background-color: #A6A1AD; 
+  border-color: #605D70; 
+} 
+ 
+.btn-grey .badge { 
+  color: #A6A1AD; 
+  background-color: #ffffff; 
+}
+.btn-mred { 
+  color: #FFFFFF; 
+  background-color: #E01919; 
+  border-color: #BD4242; 
+} 
+ 
+.btn-mred:hover, 
+.btn-mred:focus, 
+.btn-mred:active, 
+.btn-mred.active, 
+.open .dropdown-toggle.btn-mred { 
+  color: #FFFFFF; 
+  background-color: #871111; 
+  border-color: #BD4242; 
+} 
+ 
+.btn-mred:active, 
+.btn-mred.active, 
+.open .dropdown-toggle.btn-mred { 
+  background-image: none; 
+} 
+ 
+.btn-mred.disabled, 
+.btn-mred[disabled], 
+fieldset[disabled] .btn-mred, 
+.btn-mred.disabled:hover, 
+.btn-mred[disabled]:hover, 
+fieldset[disabled] .btn-mred:hover, 
+.btn-mred.disabled:focus, 
+.btn-mred[disabled]:focus, 
+fieldset[disabled] .btn-mred:focus, 
+.btn-mred.disabled:active, 
+.btn-mred[disabled]:active, 
+fieldset[disabled] .btn-mred:active, 
+.btn-mred.disabled.active, 
+.btn-mred[disabled].active, 
+fieldset[disabled] .btn-mred.active { 
+  background-color: #E01919; 
+  border-color: #BD4242; 
+} 
+ 
+.btn-mred .badge { 
+  color: #E01919; 
+  background-color: #FFFFFF; 
+}
+.btn-lblue { 
+  color: #FFFFFF; 
+  background-color: #19D9E0; 
+  border-color: #3E8A94; 
+} 
+ 
+.btn-lblue:hover, 
+.btn-lblue:focus, 
+.btn-lblue:active, 
+.btn-lblue.active, 
+.open .dropdown-toggle.btn-lblue { 
+  color: #FFFFFF; 
+  background-color: #0F6773; 
+  border-color: #3E8A94; 
+} 
+ 
+.btn-lblue:active, 
+.btn-lblue.active, 
+.open .dropdown-toggle.btn-lblue { 
+  background-image: none; 
+} 
+ 
+.btn-lblue.disabled, 
+.btn-lblue[disabled], 
+fieldset[disabled] .btn-lblue, 
+.btn-lblue.disabled:hover, 
+.btn-lblue[disabled]:hover, 
+fieldset[disabled] .btn-lblue:hover, 
+.btn-lblue.disabled:focus, 
+.btn-lblue[disabled]:focus, 
+fieldset[disabled] .btn-lblue:focus, 
+.btn-lblue.disabled:active, 
+.btn-lblue[disabled]:active, 
+fieldset[disabled] .btn-lblue:active, 
+.btn-lblue.disabled.active, 
+.btn-lblue[disabled].active, 
+fieldset[disabled] .btn-lblue.active { 
+  background-color: #19D9E0; 
+  border-color: #3E8A94; 
+} 
+ 
+.btn-lblue .badge { 
+  color: #19D9E0; 
+  background-color: #FFFFFF; 
+}
+.btn-orange { 
+  color: #FFFFFF; 
+  background-color: #FABC00; 
+  border-color: #B39852; 
+} 
+ 
+.btn-orange:hover, 
+.btn-orange:focus, 
+.btn-orange:active, 
+.btn-orange.active, 
+.open .dropdown-toggle.btn-orange { 
+  color: #FFFFFF; 
+  background-color: #73570F; 
+  border-color: #B39852; 
+} 
+ 
+.btn-orange:active, 
+.btn-orange.active, 
+.open .dropdown-toggle.btn-orange { 
+  background-image: none; 
+} 
+ 
+.btn-orange.disabled, 
+.btn-orange[disabled], 
+fieldset[disabled] .btn-orange, 
+.btn-orange.disabled:hover, 
+.btn-orange[disabled]:hover, 
+fieldset[disabled] .btn-orange:hover, 
+.btn-orange.disabled:focus, 
+.btn-orange[disabled]:focus, 
+fieldset[disabled] .btn-orange:focus, 
+.btn-orange.disabled:active, 
+.btn-orange[disabled]:active, 
+fieldset[disabled] .btn-orange:active, 
+.btn-orange.disabled.active, 
+.btn-orange[disabled].active, 
+fieldset[disabled] .btn-orange.active { 
+  background-color: #FABC00; 
+  border-color: #B39852; 
+} 
+ 
+.btn-orange .badge { 
+  color: #FABC00; 
+  background-color: #FFFFFF; 
+}
+.btn-yellow { 
+  color: #FFFFFF; 
+  background-color: #FAEE00; 
+  border-color: #D7DE11; 
+} 
+ 
+.btn-yellow:hover, 
+.btn-yellow:focus, 
+.btn-yellow:active, 
+.btn-yellow.active, 
+.open .dropdown-toggle.btn-yellow { 
+  color: #FFFFFF; 
+  background-color: #858F00; 
+  border-color: #D7DE11; 
+} 
+ 
+.btn-yellow:active, 
+.btn-yellow.active, 
+.open .dropdown-toggle.btn-yellow { 
+  background-image: none; 
+} 
+ 
+.btn-yellow.disabled, 
+.btn-yellow[disabled], 
+fieldset[disabled] .btn-yellow, 
+.btn-yellow.disabled:hover, 
+.btn-yellow[disabled]:hover, 
+fieldset[disabled] .btn-yellow:hover, 
+.btn-yellow.disabled:focus, 
+.btn-yellow[disabled]:focus, 
+fieldset[disabled] .btn-yellow:focus, 
+.btn-yellow.disabled:active, 
+.btn-yellow[disabled]:active, 
+fieldset[disabled] .btn-yellow:active, 
+.btn-yellow.disabled.active, 
+.btn-yellow[disabled].active, 
+fieldset[disabled] .btn-yellow.active { 
+  background-color: #FAEE00; 
+  border-color: #D7DE11; 
+} 
+ 
+.btn-yellow .badge { 
+  color: #FAEE00; 
+  background-color: #FFFFFF; 
+}
+.btn-purple { 
+  color: #ffffff; 
+  background-color: #7319E8; 
+  border-color: #4430AB; 
+} 
+ 
+.btn-purple:hover, 
+.btn-purple:focus, 
+.btn-purple:active, 
+.btn-purple.active, 
+.open .dropdown-toggle.btn-purple { 
+  color: #ffffff; 
+  background-color: #552299; 
+  border-color: #4430AB; 
+} 
+ 
+.btn-purple:active, 
+.btn-purple.active, 
+.open .dropdown-toggle.btn-purple { 
+  background-image: none; 
+} 
+ 
+.btn-purple.disabled, 
+.btn-purple[disabled], 
+fieldset[disabled] .btn-purple, 
+.btn-purple.disabled:hover, 
+.btn-purple[disabled]:hover, 
+fieldset[disabled] .btn-purple:hover, 
+.btn-purple.disabled:focus, 
+.btn-purple[disabled]:focus, 
+fieldset[disabled] .btn-purple:focus, 
+.btn-purple.disabled:active, 
+.btn-purple[disabled]:active, 
+fieldset[disabled] .btn-purple:active, 
+.btn-purple.disabled.active, 
+.btn-purple[disabled].active, 
+fieldset[disabled] .btn-purple.active { 
+  background-color: #7319E8; 
+  border-color: #4430AB; 
+} 
+ 
+.btn-purple .badge { 
+  color: #7319E8; 
+  background-color: #ffffff; 
+}
+.btn-dpurple { 
+  color: #ffffff; 
+  background-color: #430B8C; 
+  border-color: #1D0D6B; 
+} 
+ 
+.btn-dpurple:hover, 
+.btn-dpurple:focus, 
+.btn-dpurple:active, 
+.btn-dpurple.active, 
+.open .dropdown-toggle.btn-dpurple { 
+  color: #ffffff; 
+  background-color: #3C1173; 
+  border-color: #1D0D6B; 
+} 
+ 
+.btn-dpurple:active, 
+.btn-dpurple.active, 
+.open .dropdown-toggle.btn-dpurple { 
+  background-image: none; 
+} 
+ 
+.btn-dpurple.disabled, 
+.btn-dpurple[disabled], 
+fieldset[disabled] .btn-dpurple, 
+.btn-dpurple.disabled:hover, 
+.btn-dpurple[disabled]:hover, 
+fieldset[disabled] .btn-dpurple:hover, 
+.btn-dpurple.disabled:focus, 
+.btn-dpurple[disabled]:focus, 
+fieldset[disabled] .btn-dpurple:focus, 
+.btn-dpurple.disabled:active, 
+.btn-dpurple[disabled]:active, 
+fieldset[disabled] .btn-dpurple:active, 
+.btn-dpurple.disabled.active, 
+.btn-dpurple[disabled].active, 
+fieldset[disabled] .btn-dpurple.active { 
+  background-color: #430B8C; 
+  border-color: #1D0D6B; 
+} 
+ 
+.btn-dpurple .badge { 
+  color: #430B8C; 
+  background-color: #ffffff; 
+}
+.btn-lilac { 
+  color: #ffffff; 
+  background-color: #B07EF2; 
+  border-color: #7B6CC7; 
+} 
+ 
+.btn-lilac:hover, 
+.btn-lilac:focus, 
+.btn-lilac:active, 
+.btn-lilac.active, 
+.open .dropdown-toggle.btn-lilac { 
+  color: #ffffff; 
+  background-color: #6D4B99; 
+  border-color: #7B6CC7; 
+} 
+ 
+.btn-lilac:active, 
+.btn-lilac.active, 
+.open .dropdown-toggle.btn-lilac { 
+  background-image: none; 
+} 
+ 
+.btn-lilac.disabled, 
+.btn-lilac[disabled], 
+fieldset[disabled] .btn-lilac, 
+.btn-lilac.disabled:hover, 
+.btn-lilac[disabled]:hover, 
+fieldset[disabled] .btn-lilac:hover, 
+.btn-lilac.disabled:focus, 
+.btn-lilac[disabled]:focus, 
+fieldset[disabled] .btn-lilac:focus, 
+.btn-lilac.disabled:active, 
+.btn-lilac[disabled]:active, 
+fieldset[disabled] .btn-lilac:active, 
+.btn-lilac.disabled.active, 
+.btn-lilac[disabled].active, 
+fieldset[disabled] .btn-lilac.active { 
+  background-color: #B07EF2; 
+  border-color: #7B6CC7; 
+} 
+ 
+.btn-lilac .badge { 
+  color: #B07EF2; 
+  background-color: #ffffff; 
+}
+.btn-lgreen { 
+  color: #ffffff; 
+  background-color: #84F27E; 
+  border-color: #6CC779; 
+} 
+ 
+.btn-lgreen:hover, 
+.btn-lgreen:focus, 
+.btn-lgreen:active, 
+.btn-lgreen.active, 
+.open .dropdown-toggle.btn-lgreen { 
+  color: #ffffff; 
+  background-color: #4B9954; 
+  border-color: #6CC779; 
+} 
+ 
+.btn-lgreen:active, 
+.btn-lgreen.active, 
+.open .dropdown-toggle.btn-lgreen { 
+  background-image: none; 
+} 
+ 
+.btn-lgreen.disabled, 
+.btn-lgreen[disabled], 
+fieldset[disabled] .btn-lgreen, 
+.btn-lgreen.disabled:hover, 
+.btn-lgreen[disabled]:hover, 
+fieldset[disabled] .btn-lgreen:hover, 
+.btn-lgreen.disabled:focus, 
+.btn-lgreen[disabled]:focus, 
+fieldset[disabled] .btn-lgreen:focus, 
+.btn-lgreen.disabled:active, 
+.btn-lgreen[disabled]:active, 
+fieldset[disabled] .btn-lgreen:active, 
+.btn-lgreen.disabled.active, 
+.btn-lgreen[disabled].active, 
+fieldset[disabled] .btn-lgreen.active { 
+  background-color: #84F27E; 
+  border-color: #6CC779; 
+} 
+ 
+.btn-lgreen .badge { 
+  color: #84F27E; 
+  background-color: #ffffff; 
+}
+.btn-lime { 
+  color: #ffffff; 
+  background-color: #4BFC41; 
+  border-color: #6CC779; 
+} 
+ 
+.btn-lime:hover, 
+.btn-lime:focus, 
+.btn-lime:active, 
+.btn-lime.active, 
+.open .dropdown-toggle.btn-lime { 
+  color: #ffffff; 
+  background-color: #4B9954; 
+  border-color: #6CC779; 
+} 
+ 
+.btn-lime:active, 
+.btn-lime.active, 
+.open .dropdown-toggle.btn-lime { 
+  background-image: none; 
+} 
+ 
+.btn-lime.disabled, 
+.btn-lime[disabled], 
+fieldset[disabled] .btn-lime, 
+.btn-lime.disabled:hover, 
+.btn-lime[disabled]:hover, 
+fieldset[disabled] .btn-lime:hover, 
+.btn-lime.disabled:focus, 
+.btn-lime[disabled]:focus, 
+fieldset[disabled] .btn-lime:focus, 
+.btn-lime.disabled:active, 
+.btn-lime[disabled]:active, 
+fieldset[disabled] .btn-lime:active, 
+.btn-lime.disabled.active, 
+.btn-lime[disabled].active, 
+fieldset[disabled] .btn-lime.active { 
+  background-color: #4BFC41; 
+  border-color: #6CC779; 
+} 
+ 
+.btn-lime .badge { 
+  color: #4BFC41; 
+  background-color: #ffffff; 
+}
+.btn-green { 
+  color: #ffffff; 
+  background-color: #02C702; 
+  border-color: #0B9C21; 
+} 
+ 
+.btn-green:hover, 
+.btn-green:focus, 
+.btn-green:active, 
+.btn-green.active, 
+.open .dropdown-toggle.btn-green { 
+  color: #ffffff; 
+  background-color: #106E1B; 
+  border-color: #0B9C21; 
+} 
+ 
+.btn-green:active, 
+.btn-green.active, 
+.open .dropdown-toggle.btn-green { 
+  background-image: none; 
+} 
+ 
+.btn-green.disabled, 
+.btn-green[disabled], 
+fieldset[disabled] .btn-green, 
+.btn-green.disabled:hover, 
+.btn-green[disabled]:hover, 
+fieldset[disabled] .btn-green:hover, 
+.btn-green.disabled:focus, 
+.btn-green[disabled]:focus, 
+fieldset[disabled] .btn-green:focus, 
+.btn-green.disabled:active, 
+.btn-green[disabled]:active, 
+fieldset[disabled] .btn-green:active, 
+.btn-green.disabled.active, 
+.btn-green[disabled].active, 
+fieldset[disabled] .btn-green.active { 
+  background-color: #02C702; 
+  border-color: #0B9C21; 
+} 
+ 
+.btn-green .badge { 
+  color: #02C702; 
+  background-color: #ffffff; 
+}
+.btn-mokka { 
+  color: #ffffff; 
+  background-color: #B38744; 
+  border-color: #856820; 
+} 
+ 
+.btn-mokka:hover, 
+.btn-mokka:focus, 
+.btn-mokka:active, 
+.btn-mokka.active, 
+.open .dropdown-toggle.btn-mokka { 
+  color: #ffffff; 
+  background-color: #6B641A; 
+  border-color: #856820; 
+} 
+ 
+.btn-mokka:active, 
+.btn-mokka.active, 
+.open .dropdown-toggle.btn-mokka { 
+  background-image: none; 
+} 
+ 
+.btn-mokka.disabled, 
+.btn-mokka[disabled], 
+fieldset[disabled] .btn-mokka, 
+.btn-mokka.disabled:hover, 
+.btn-mokka[disabled]:hover, 
+fieldset[disabled] .btn-mokka:hover, 
+.btn-mokka.disabled:focus, 
+.btn-mokka[disabled]:focus, 
+fieldset[disabled] .btn-mokka:focus, 
+.btn-mokka.disabled:active, 
+.btn-mokka[disabled]:active, 
+fieldset[disabled] .btn-mokka:active, 
+.btn-mokka.disabled.active, 
+.btn-mokka[disabled].active, 
+fieldset[disabled] .btn-mokka.active { 
+  background-color: #B38744; 
+  border-color: #856820; 
+} 
+ 
+.btn-mokka .badge { 
+  color: #B38744; 
+  background-color: #ffffff; 
 }
 </style>
-<!DOCTYPE html>
-
-<html lang="en">
-    <head>
-    <meta charset="utf-8"> 
-	<meta name="viewport" content="width=device-width, initial-scale=1"> 	
-	<meta name="author" content="sumit kumar"> 
-	<title>admin-template</title> 
-	<link href="css/bootstrap.css" rel="stylesheet" type="text/css">
-	<link href="css/font-awesome.css" rel="stylesheet" type="text/css">	
-	<link href="css/style.css" rel="stylesheet" type="text/css">
-	<script src="https://use.fontawesome.com/07b0ce5d10.js"></script>
-    </head>
-
-
-<body>
-    
- 
-                                  <!--=============================
-                                             NAVIGATION
-                                   =============================-->
-    
-<!--top nav start=======-->
-
-                                    
-        <div class="row" >
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading dark-blue">
-                                    <i class="fa fa-users fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content dark-blue">
-                                <div class="circle-tile-description text-faded">
-                                    Users
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    265
-                                    <span id="sparklineA"></span>
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading green">
-                                    <i class="fa fa-money fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content green">
-                                <div class="circle-tile-description text-faded">
-                                    Revenue
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    $32,384
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading orange">
-                                    <i class="fa fa-bell fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content orange">
-                                <div class="circle-tile-description text-faded">
-                                    Alerts
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    9 New
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading blue">
-                                    <i class="fa fa-tasks fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content blue">
-                                <div class="circle-tile-description text-faded">
-                                    Tasks
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    10
-                                    <span id="sparklineB"></span>
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading red">
-                                    <i class="fa fa-shopping-cart fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content red">
-                                <div class="circle-tile-description text-faded">
-                                    Orders
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    24
-                                    <span id="sparklineC"></span>
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-lg-4 col-sm-6">
-                        <div class="circle-tile">
-                            <a href="#">
-                                <div class="circle-tile-heading purple">
-                                    <i class="fa fa-comments fa-fw fa-3x"></i>
-                                </div>
-                            </a>
-                            <div class="circle-tile-content purple">
-                                <div class="circle-tile-description text-faded">
-                                    Mentions
-                                </div>
-                                <div class="circle-tile-number text-faded">
-                                    96
-                                    <span id="sparklineD"></span>
-                                </div>
-                                <a href="#" class="circle-tile-footer">More Info <i class="fa fa-chevron-circle-right"></i></a>
-                            </div>
-                        </div>
-                    </div>
+<div class="container">
+<section>
+    <div class="row">
+        <div class="col-md-12">
+            <h3 class="panel-title"><span class="glyphicon glyphicon-thumbs-up"></span>Dashboard</h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-primary">
+                <div class="panel-heading">
+                    <!-- <h3 class="panel-title"><span class="glyphicon glyphicon-thumbs-up"></span>Dashboard</h3> -->
                 </div>
-                                                     
-        
-    
-    
-
-
- 
-
-    
-    
-    <script src="js/jquery-3.1.1.js"></script>    
-    <script src="js/bootstrap.js"></script>
-    
-
-
-<script type="text/javascript">
-    $(document).ready(function(){
-        $(".sidebar-toggle").click(function(){
-            $(this).hide();
-            
-           $("#user-profil").show();
-            
-           $("#hide-btn").show();
-            
-           $(".container-2").css("width", "85%");
-            
-             
-        });
-        
-        $("#hide-btn").click(function(){
-            $(this).hide();
-            
-           $("#user-profil").hide();
-            
-           $(".sidebar-toggle").show();
-            
-           $(".container-2").css("width", "100%");
-            
-             
-        });
-    });
-</script>
-
-   
- 
-   
-   
-</body>
-</html>
+                <div class="panel-body">
+                   <!--  <div class="row">
+                        <div class="col-md-12">
+                            <a href="#" class="btn btn-grey btn-lg" role="button"><span class="glyphicon glyphicon-cog glyphsize red"></span> <br />Example<br />Button <span class="glyphicon glyphicon-cog black"></span></a>
+                        </div>
+                    </div> -->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="{{ route('addEmployee') }}" class="btn btn-dblue btn-lg" role="button"><span class="glyphicon glyphicon-user glyphsize"></span> <br />Add <span class="glyphicon glyphicon-plus green"></span><br />Employee</a>
+                            <a href="{{ route('asignTask') }}" class="btn btn-dred btn-lg" role="button"><span class="glyphicon glyphicon-calendar glyphsize"></span> <br/>Asign <span class="glyphicon glyphicon-plus green"></span><br /> Task</a>
+                            <a href="#" class="btn btn-dgreen btn-lg" role="button"><span class="glyphicon glyphicon-signal glyphsize green"></span> <br/>Business<br />Reports </a>
+                            <a href="#" class="btn btn-mred btn-lg" role="button"><span class="glyphicon glyphicon-envelope glyphsize"></span> <br/>Postage<br />Manager</a>
+                            <a href="#" class="btn btn-lblue btn-lg" role="button"><span class="glyphicon glyphicon-list-alt glyphsize blue"></span> <br/><span class="blue">SubCategory<br />Manager</span></a>
+                            <a href="#" class="btn btn-orange btn-lg" role="button"><span class="glyphicon glyphicon-bullhorn glyphsize"></span> <br/>Announcement<br />Manager</a>
+                            <a href="#" class="btn btn-burnt btn-lg" role="button"><span class="glyphicon glyphicon-cog glyphsize yellow"></span> <br/>Swatch<br />Setup</a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <a href="#" class="btn btn-green btn-lg" role="button"><span class="glyphicon glyphicon-dashboard glyphsize dgreen"></span> <br /><br />Dashboard</a>
+                            <a href="#" class="btn btn-lime btn-lg" role="button"><span class="glyphicon glyphicon-cog glyphsize dgreen"></span> <span class="dgreen"><br />SEO<br />Setup</span></a>
+                            <a href="#" class="btn btn-mokka btn-lg" role="button"><span class="glyphicon glyphicon-tasks glyphsize choc"></span> <br />Departments<br />Setup</a>
+                            <a href="#" class="btn btn-dpurple btn-lg" role="button"><span class="glyphicon glyphicon-saved glyphsize lilac"></span> <br/>Invoices<br />Archived</a>
+                            <a href="#" class="btn btn-lilac btn-lg" role="button"><span class="glyphicon glyphicon-th-large glyphsize"></span> <br/>Stock<br />Manager</a>
+                            <a href="#" class="btn btn-purple btn-lg" role="button"><span class="glyphicon glyphicon-shopping-cart glyphsize black"></span> <br/>Shopping<br />Cart</a>
+                            <a href="#" class="btn btn-yellow btn-lg" role="button"><span class="glyphicon glyphicon-question-sign glyphsize orange"></span> <br/><span class="orange">Vaccination<br />Manager</span></a>
+                        </div>
+                    </div>
+                <div class="panel-footer">
+                    <div class="pull-left">Author: Dennis Pattison</div>
+                    <div class="pull-right"><a href="http://www.dinara.co.uk" target="_blank">Dinara Design</a></div>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+</div>

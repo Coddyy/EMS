@@ -25,10 +25,15 @@ Route::post('FormInsert', 'FormController@insert')->name('FormInsert');
 
 
 
-// Project Routes
+// EMS Project Routes
 
 Route::get('home', 'MainController@index')->name('home');
-Route::get('add', 'MainController@add_car_repair')->name('add');
-Route::post('Insert', 'MainController@insert_car_repair')->name('Insert');
 
-// End Project Routes
+Route::get('addEmployee', 'MainController@add_employee')->name('addEmployee');
+Route::post('employeeInsert', 'MainController@insert_employee')->name('employeeInsert');
+
+Route::get('asignTask', 'MainController@asign_task')->name('asignTask');
+Route::post('taskInsert', 'MainController@insert_task')->name('taskInsert');
+
+Route::get('allTasks','MainController@all_tasks')->name('allTasks');
+// End EMS Project Routes

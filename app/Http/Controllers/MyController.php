@@ -10,7 +10,7 @@ class MyController extends Controller
     //
     public function index()
     {
-    	 echo "hello controller";
+    	 echo "hello EMS controller";
     	// $data = array('name' =>'Abhra' ,
     	// 			  'email'=>'cadtestmymail@gmail.com');
     	return view('myview');
