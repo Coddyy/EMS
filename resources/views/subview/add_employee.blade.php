@@ -12,7 +12,13 @@
     border: 1px solid GREY;
     }
 </style>
+<?php if(Session::has('id')){ 
 
+//  echo '<pre>';
+// $data=Session::all();
+// echo Session::get('name');die();
+
+?>
 <div class="container">
 <div class="col-md-6">
 
@@ -110,3 +116,10 @@
     }
 
 </script>
+  <?php } else { 
+
+      Session::flush();
+      return redirect()->action('LoginController@index');
+
+    }
+    ?>

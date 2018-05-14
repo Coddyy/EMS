@@ -800,6 +800,13 @@ fieldset[disabled] .btn-mokka.active {
   background-color: #ffffff; 
 }
 </style>
+<?php if(Session::has('id')){ 
+
+//  echo '<pre>';
+// $data=Session::all();
+// echo Session::get('name');die();
+
+?>
 <div class="container">
 <section>
     <div class="row">
@@ -851,3 +858,10 @@ fieldset[disabled] .btn-mokka.active {
     </div>
 </section>
 </div>
+  <?php } else { 
+
+      Session::flush();
+      return redirect()->action('LoginController@index');
+
+    }
+    ?>

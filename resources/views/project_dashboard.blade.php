@@ -57,16 +57,19 @@
           </li>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
-          <li class="nav-item dropdown btn btn-info" >
+          <!-- <li class="nav-item dropdown btn btn-info" >
               <a style="color:white;" href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Session::get('name') }} <b class="caret"></b></a>
-              <ul class="dropdown-menu btn" style="color:black;">
-                <li ><a href="#"></a></li>
+              <ul class="dropdown-menu" style="color:black;">
+                <a href="#"><li ></li></a>
                 <li class="divider"></li>
-                <li ><a href="{{ route('Logout') }}">Logout</a></li>
+                <a href="{{ route('Logout') }}"><li>Logout</li></a>
               </ul>
-          </li>
+          </li> -->
           <li class="nav-item">
-            
+            <select class="btn btn-info">
+              <option>{{ Session::get('name') }}</option>
+              <a href="{{ route('Logout') }}"><option onclick="click()">Logout</option></a>
+            </select>
           </li>
         </ul>
       </div>
@@ -82,13 +85,7 @@
       </div>
     </div>
   </div>
-  <?php } else { 
 
-      Session::flush();
-      return redirect()->action('LoginController@index');
-
-    }
-    ?>
 
 <script type="text/javascript">
       $(function(){
@@ -104,5 +101,17 @@
                 // $('b', this).toggleClass("caret caret-up");                
             });
     });
+
+      // function click()
+      // {
+      //   window.location="";
+      // }
     
 </script>
+  <?php } else { 
+
+      Session::flush();
+      return redirect()->action('LoginController@index');
+
+    }
+    ?>

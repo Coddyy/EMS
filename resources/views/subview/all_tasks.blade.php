@@ -28,10 +28,16 @@ tr:after {
     visibility: hidden;
 }
 </style>
+
 <?php 
 
 use App\Main_M as Main_M;
 $Main_M= new Main_M();
+if(Session::has('id')){ 
+
+//  echo '<pre>';
+// $data=Session::all();
+// echo Session::get('name');die();
 
 ?>
 <div class="container">
@@ -78,3 +84,10 @@ if($value->status == 'P')
       </tbody>
     </table>
 </div>
+  <?php } else { 
+
+      Session::flush();
+      return redirect()->action('LoginController@index');
+
+    }
+    ?>

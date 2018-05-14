@@ -11,12 +11,17 @@
     border: 1px solid GREY;
     }
 </style>
+
 <?php 
 
 use App\Main_M as Main_M;
 $Main_M = new Main_M();
 $employee=$Main_M->all_non_asigned_employees(); 
+if(Session::has('id')){ 
 
+//  echo '<pre>';
+// $data=Session::all();
+// echo Session::get('name');die();
 
 ?>
 <div class="container">
@@ -83,3 +88,10 @@ $employee=$Main_M->all_non_asigned_employees();
 });
 
 </script>
+  <?php } else { 
+
+      Session::flush();
+      return redirect()->action('LoginController@index');
+
+    }
+    ?>
