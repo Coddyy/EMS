@@ -12,13 +12,27 @@ class MainController extends Controller
     }
     public function index()
     {
-    	$data['subview']=view('subview.dashboard_home');
-        return view('project_dashboard',$data);
+        // echo '<pre>';
+        // print_r(Session::all());die();
+        if(Session::has('id'))
+        {
+            // echo '<pre>';
+            // print_r(Session::all());die();
+        	$data['subview']=view('subview.dashboard_home');
+            return view('project_dashboard',$data);
+        }
+        else
+        {
+            Session::flush();
+            return redirect()->action('LoginController@index');
+        }
     }
     public function add_employee()
     {
-        $data['subview']=view('subview.add_employee');
-        return view('project_dashboard',$data);
+
+            $data['subview']=view('subview.add_employee');
+            return view('project_dashboard',$data);
+        
     }
     public function insert_employee(Request $request)
     {

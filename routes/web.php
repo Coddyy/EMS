@@ -27,6 +27,7 @@ Route::post('FormInsert', 'FormController@insert')->name('FormInsert');
 
 // EMS Project Routes
 
+//Dashboard
 Route::get('home', 'MainController@index')->name('home');
 
 Route::get('addEmployee', 'MainController@add_employee')->name('addEmployee');
@@ -36,4 +37,12 @@ Route::get('asignTask', 'MainController@asign_task')->name('asignTask');
 Route::post('taskInsert', 'MainController@insert_task')->name('taskInsert');
 
 Route::get('allTasks','MainController@all_tasks')->name('allTasks');
+//End Dashboard
+
+//Login
+Route::get('Login','LoginController@index')->name('Login');
+Route::post('CheckLogin','LoginController@login')->name('CheckLogin');
+Route::get('Logout','LoginController@logout')->name('Logout');
+// End Login
+
 // End EMS Project Routes

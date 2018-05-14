@@ -43,10 +43,10 @@ $employee=$Main_M->all_non_asigned_employees();
 					</div>
                     <div class="form-group">
                         <select name="emp_id" class="form-control">
-                            <option value="">--Select Role--</option>
+                            <option value="">--Select Employee--</option>
                             <?php 
-                            echo '<pre>';
-                            print_r($employee);//die();
+                            // echo '<pre>';
+                            // print_r($employee);//die();
                             foreach ($employee as $key => $value) 
                             { ?>
 

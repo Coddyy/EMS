@@ -12,7 +12,26 @@
 #wrapper{margin-left: 200px;padding: 90px 15px 15px;}
 .navbar-nav.side-nav{background: #585f66;box-shadow: 2px 1px 2px rgba(0,0,0,.1);position:fixed;top:56px;flex-direction: column!important;left:0;width:200px;overflow-y:auto;bottom:0;overflow-x:hidden;padding-bottom:40px}
 }
+
+.caret-up {
+    width: 0; 
+    height: 0; 
+    border-left: 4px solid rgba(0, 0, 0, 0);
+    border-right: 4px solid rgba(0, 0, 0, 0);
+    border-bottom: 4px solid;
+    
+    display: inline-block;
+    margin-left: 2px;
+    vertical-align: middle;
+}
 </style>
+<?php if(Session::has('id')){ 
+
+//  echo '<pre>';
+// $data=Session::all();
+// echo Session::get('name');die();
+
+?>
 <div id="wrapper">
     <nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
       <a class="navbar-brand" href="#">Task Manager</a>
@@ -38,27 +57,52 @@
           </li>
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
-          <li class="nav-item">
-            <a class="nav-link" href="#">Asign Task
-              <span class="sr-only">(current)</span>
-            </a>
+          <li class="nav-item dropdown btn btn-info" >
+              <a style="color:white;" href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Session::get('name') }} <b class="caret"></b></a>
+              <ul class="dropdown-menu btn" style="color:black;">
+                <li ><a href="#"></a></li>
+                <li class="divider"></li>
+                <li ><a href="{{ route('Logout') }}">Logout</a></li>
+              </ul>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Top Menu Items</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Pricing</a>
+            
           </li>
         </ul>
       </div>
     </nav>
     <div class="container-fluid">
         <div class="row">
+        <?php 
         
-        <?php echo $subview;?>
+        echo $subview;?>
         </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+  <?php } else { 
+
+      Session::flush();
+      return redirect()->action('LoginController@index');
+
+    }
+    ?>
+
+<script type="text/javascript">
+      $(function(){
+    $(".dropdown").hover(            
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeIn("fast");
+                $(this).toggleClass('open');
+                //$('b', this).toggleClass("caret caret-up");                
+            },
+            function() {
+                $('.dropdown-menu', this).stop( true, true ).fadeOut("fast");
+                $(this).toggleClass('open');
+                // $('b', this).toggleClass("caret caret-up");                
+            });
+    });
+    
+</script>
