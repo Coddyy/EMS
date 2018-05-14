@@ -77,5 +77,9 @@ class MainController extends Controller
         $data['subview']=view('subview.all_tasks');
         return view('project_dashboard',$data);
     }
+    public function return_null($id=NULL)
+    {
+        return $id;
+    }
 }
 ?>
