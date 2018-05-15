@@ -66,9 +66,10 @@
               </ul>
           </li> -->
           <li class="nav-item">
-            <select class="btn btn-info">
+            <select class="btn btn-info" id="dropdown" onchange="clickthis()">
               <option>{{ Session::get('name') }}</option>
-              <a href="{{ route('Logout') }}"><option onclick="click()">Logout</option></a>
+              <option value="logout">Logout</option>
+              <!-- <a href="{{ route('Logout') }}"><option onclick="click()">Logout</option></a> -->
             </select>
           </li>
         </ul>
@@ -102,10 +103,16 @@
             });
     });
 
-      // function click()
-      // {
-      //   window.location="";
-      // }
+      function clickthis()
+      {
+        //alert('ok');
+        var data=$('#dropdown').val();
+        if(data == 'logout')
+        {
+          //alert('ok');
+          window.location.href = "<?php echo route('Logout');?>";
+        }
+      }
     
 </script>
   <?php } else { 

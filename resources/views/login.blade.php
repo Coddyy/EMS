@@ -7,6 +7,16 @@
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+<?php if(Session::has('id')){ 
+
+//  echo '<pre>';
+// $data=Session::all();
+// echo Session::get('name');die();
+return redirect()->action('MainController@index');
+
+} else { 
+
+?>
 <style type="text/css">
 
 </style>
@@ -147,3 +157,6 @@
          </div> 
     </div>
 </body>
+<?php 
+      }
+    ?>
