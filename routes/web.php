@@ -45,4 +45,15 @@ Route::post('CheckLogin','LoginController@login')->name('CheckLogin');
 Route::get('Logout','LoginController@logout')->name('Logout');
 // End Login
 
+//Employee
+
+Route::get('EmployeeDashboard','EmployeeController@index')->name('EmployeeDashboard');
+Route::get('MyTasks','EmployeeController@my_tasks')->name('MyTasks');
+Route::get('StartTask/{id}','EmployeeController@start_task')->name('StartTask');
+Route::get('EndTask/{id}','EmployeeController@end_task')->name('EndTask');
+// End Employee
+
+
+
+
 // End EMS Project Routes

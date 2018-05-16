@@ -18,8 +18,15 @@ class MainController extends Controller
         {
             // echo '<pre>';
             // print_r(Session::all());die();
-        	$data['subview']=view('subview.dashboard_home');
-            return view('project_dashboard',$data);
+            if(Session::get('type') == 'admin')
+            {
+            	$data['subview']=view('subview.dashboard_home');
+                return view('project_dashboard',$data);
+            }
+            else
+            {
+                return redirect()->action('EmployeeController@index');
+            }
         }
         else
         {
@@ -76,10 +83,6 @@ class MainController extends Controller
     {
         $data['subview']=view('subview.all_tasks');
         return view('project_dashboard',$data);
-    }
-    public function return_null($id=NULL)
-    {
-        return $id;
     }
 }
 ?>

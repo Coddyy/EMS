@@ -14,7 +14,7 @@ class Main_M extends Model
     {
     	// echo '<pre>';
     	// print_r($data);
-    	$success=\DB::table('employee')->insert(['name' => $data['emp_name'],'mobile' => $data['emp_mobile'], 'email' => $data['emp_email'],'role' => $data['role'],'password' => md5($data['emp_password']),'created' => date('y-m-d H:i:s'),'status' =>'0','working_status' => '0']);
+    	$success=\DB::table('employee')->insert(['name' => $data['emp_name'],'type' => 'employee','mobile' => $data['emp_mobile'], 'email' => $data['emp_email'],'role' => $data['role'],'password' => md5($data['emp_password']),'created' => date('y-m-d H:i:s'),'status' =>'0','working_status' => '0']);
     	if($success)
     	{
     		return true;

@@ -9,7 +9,8 @@ class LoginController extends Controller
 {
 	public function __construct()
     {
-        //
+        // $this->middleware('auth');
+
     }
     public function index()
     {
@@ -23,12 +24,22 @@ class LoginController extends Controller
     	// print_r($post);
     	$username=$post['username'];
     	$password=md5($post['password']);
+        $type=$post['type'];
     	$Login_M= new Login_M();
-    	$data=$Login_M->login($username,$password);
+    	$data=$Login_M->login($username,$password,$type);
     	if($data != false)
     	{
-    		$request->session()->put($data);
-    		return redirect()->action('MainController@index');
+            if($type == 'admin')
+            {
+                $request->session()->put($data);
+                return redirect()->action('MainController@index');
+            }
+            else
+            {
+                $request->session()->put($data);
+            return redirect()->action('MainController@index');
+            }
+    		
     	}
     	else
     	{

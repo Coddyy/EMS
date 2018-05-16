@@ -40,8 +40,7 @@ return redirect()->action('MainController@index');
 
                         <div style="display:none" id="login-alert" class="alert alert-danger col-sm-12"></div>
                             
-                        <form action="{{ route('CheckLogin') }}" method="POST" id="loginform" class="form-horizontal" role="form">
-                               {{ csrf_field() }}     
+                        <form action="{{ route('CheckLogin') }}" method="POST" id="loginform" class="form-horizontal" role="form">    
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
                                         <input id="login-username" type="text" class="form-control" name="username" value="" placeholder="Username">                                        
@@ -50,6 +49,13 @@ return redirect()->action('MainController@index');
                             <div style="margin-bottom: 25px" class="input-group">
                                         <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
                                         <input id="login-password" type="password" class="form-control" name="password" placeholder="Password">
+                                    </div>
+                            <div style="margin-bottom: 25px" class="input-group">
+                                        <select name="type" required="" class="form-control">
+                                            <option value="">--Select Type--</option>
+                                            <option value="employee">Employee</option>
+                                            <option value="admin">Admin</option>
+                                        </select>
                                     </div>
                                     
 
@@ -84,7 +90,8 @@ return redirect()->action('MainController@index');
                                         </a>
                                         </div>
                                     </div>
-                                </div>    
+                                </div>   
+                                <input type="hidden" name="_token" value="{{ csrf_token() }}"> 
                             </form>     
 
 

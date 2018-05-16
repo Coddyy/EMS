@@ -27,6 +27,8 @@
 </style>
 <?php if(Session::has('id')){ 
 
+  
+
 //  echo '<pre>';
 // $data=Session::all();
 // echo Session::get('name');die();
@@ -41,20 +43,42 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarText">
         <ul class="navbar-nav side-nav">
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('home') }}">Dashboard
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('addEmployee')}}">Add Employee</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('asignTask') }}">Asign Task</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{{ route('allTasks') }}">All Tasks</a>
-          </li>
+
+        <?php if(Session::get('type') == 'admin'){ ?>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('home') }}">Dashboard
+                    <span class="sr-only">(current)</span>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('addEmployee')}}">Add Employee</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('asignTask') }}">Asign Task</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('allTasks') }}">All Tasks</a>
+                </li>
+
+          <?php } else if(Session::get('type') == 'employee') 
+          { ?>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('EmployeeDashboard')}}">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('MyTasks') }}">My Tasks</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="{{ route('allTasks') }}">Report</a>
+                </li>
+          
+          <?php 
+
+              //return redirect()->action('LoginController@index');
+          } ?>
+
         </ul>
         <ul class="navbar-nav ml-md-auto d-md-flex">
           <!-- <li class="nav-item dropdown btn btn-info" >

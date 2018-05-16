@@ -10,9 +10,16 @@ class Login_M extends Model
     {
     	echo "Hi I am model";
     }
-    public function login($username,$password)
+    public function login($username,$password,$type)
     {
-    	$success=\DB::table('admin')->where('email',$username)->where('password', $password)->first();
+        if($type == 'admin')
+        {
+    	   $success=\DB::table('admin')->where('email',$username)->where('password', $password)->first();
+        }
+        else if($type == 'employee')
+        {
+            $success=\DB::table('employee')->where('email',$username)->where('password', $password)->first();
+        }
     	if($success)
     	{
     		//echo $success->id;die();
@@ -20,7 +27,8 @@ class Login_M extends Model
     					'id' => $success->id,
     					'name' => $success->name,
     					'email' => $success->email,
-    					'mobile' => $success->mobile
+    					'mobile' => $success->mobile,
+                        'type' => $success->type
     					);
     		return $data;
     	}
