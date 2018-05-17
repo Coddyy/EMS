@@ -84,5 +84,23 @@ class MainController extends Controller
         $data['subview']=view('subview.all_tasks');
         return view('project_dashboard',$data);
     }
+    public function reopen_issue(Request $request)
+    {
+        $post=$request->all();
+        // echo '<pre>';
+        // print_r($post);die();
+        $Main_M= new Main_M();
+        $result=$Main_M->save_reopen_reason($post['h_taskId'],$post['reason']);
+        if($result)
+        {
+            Session::flash('success_msg', 'Task Reopend');
+        }
+        else
+        {
+            Session::flash('error_msg', 'Task Reopen Failed!');
+        }
+       return redirect()->action('MainController@all_tasks');
+    }
+    
 }
 ?>

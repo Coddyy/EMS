@@ -71,4 +71,16 @@ class Main_M extends Model
         $emp=\DB::table('employee')->where('id',$emp_id)->first();
         return $emp->name;
     }
+    public function save_reopen_reason($id,$reason)
+    {
+        $success=\DB::table('task')->where('id',$id)->update(['reopen_reason' => $reason,'status' => 'R']);
+        if($success)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

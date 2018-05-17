@@ -93,6 +93,11 @@ else if($value->status == 'C')
     $bgcolor='green';
     $status='Completed';
 }
+else if($value->status == 'R')
+{
+    $bgcolor='#ff9966';
+    $status='Reopend';
+}
 ?>
           <tr>
               <td><?php echo $value->id;?> </td>
@@ -102,7 +107,7 @@ else if($value->status == 'C')
               <td><?php echo $value->hours;?></td>
               <td><span style="background-color:<?php echo $bgcolor;?>;border-radius:4px;color:white">&nbsp<?php echo $status;?>&nbsp</span></td>
               <td>
-                <?php if($value->status == 'P'){ ?>
+                <?php if($value->status == 'P' || $value->status == 'R'){ ?>
                   <a href="{{ route('StartTask',$task_id) }}"><button class="btn btn-info">Start</button></a>
                 <?php } else if($value->status == 'S'){ ?>
                     <a href="{{ route('EndTask',$task_id) }}"><button class="btn btn-warning">End</button></a>
