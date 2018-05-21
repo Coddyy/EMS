@@ -134,7 +134,7 @@ else if($value->status == 'R')
                               </a>';
                       } else if($value->status == 'R')
                       {
-                        echo '<a onclick="put_value_modal2(this)" data-id='.$value->id.' data-emp_id='.$value->emp_id.' data-toggle="modal" data-target="#myModal1" href="#" title="Reopen Issue">
+                        echo '<a onclick="put_value_modal2(this)" data-id='.$value->id.' data-toggle="modal" data-target="#myModal1" href="#" title="Reopen Issue">
                                 <i style="color:orange;" class="fa fa-exclamation-circle"></i>
                               </a>';
                               $replies=$Reply_M->all_replies($value->id);
@@ -178,7 +178,6 @@ else if($value->status == 'R')
     </div>
   </div>
 
-<button onclick="myFunction()">Click</button>
   <!-- Reply Modal -->
 <!-- 
 <button data-toggle="modal" data-target="#myModal1">Click</button> -->
@@ -194,7 +193,7 @@ else if($value->status == 'R')
         <div class="modal-body" align="center">
           <p id="demo" style="height:200px;">
             
-          
+         
 
           </p>
           <form action="{{ route('replyIssue') }}" method="POST">
@@ -239,7 +238,7 @@ else if($value->status == 'R')
   {
     // alert('ok');
     var task_id=$(val).attr('data-id');
-    //alert(task_id);
+    alert(task_id);
     var fieldId='#task_id'+task_id;
 
     $('#h_taskId2').val(task_id);
@@ -250,16 +249,11 @@ else if($value->status == 'R')
         success: function(data){
           
             var val = $.parseJSON(data);
-            var reply  = val.reply;
-
-            console.log(reply.length);
+            // var length  = val.length;
+            //console.log(val);
             //console.log(val.reply);
             // $(datasorce).val(val.datasource_id);
-            for (var i = 0 - 1; i < reply.length; i++) 
-            {
-              $('#demo').html(val.reply);
-            }
-            
+            $('#demo').val(val);
            
         },
         complete: function(){

@@ -40,7 +40,7 @@ Route::get('allTasks','MainController@all_tasks')->name('allTasks');
 
 Route::post('reopenIssue','MainController@reopen_issue')->name('reopenIssue');
 Route::get('replyIssue','ReplyController@reply_issue')->name('replyIssue');
-Route::post('allReplies','ReplyController@all_replies')->name('allReplies');
+Route::get('allReplies','ReplyController@all_replies')->name('allReplies');
 
 //End Dashboard
 
