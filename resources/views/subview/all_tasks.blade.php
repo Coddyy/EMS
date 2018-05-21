@@ -239,22 +239,22 @@ else if($value->status == 'R')
   {
     // alert('ok');
     var task_id=$(val).attr('data-id');
-    //alert(task_id);
+    var emp_id=$(val).attr('data-emp_id');
+    var admin_id=<?php echo Session::get('id') ?>;
+    //alert(admin_id);
     var fieldId='#task_id'+task_id;
 
     $('#h_taskId2').val(task_id);
     $.ajax({
         url: '{{ route("allReplies") }}',
         type: 'GET',
-        data: {task_id: task_id , _csrf: '{{ csrf_field() }}'},
+        data: {task_id: task_id , emp_id:emp_id,admin_id:admin_id ,_csrf: '{{ csrf_field() }}'},
         success: function(data){
           
             var val = $.parseJSON(data);
             var reply  = val.reply;
-
-            console.log(reply.length);
-            //console.log(val.reply);
-            // $(datasorce).val(val.datasource_id);
+            //console.log(val);
+            //console.log(reply.length);
             for (var i = 0 - 1; i < reply.length; i++) 
             {
               $('#demo').html(val.reply);
