@@ -37,10 +37,10 @@ class Employee_M extends Model
     		return false;
     	}
     }
-    public function end_task($task_id,$emp_id)
+    public function end_task($task_id)
     {
     	date_default_timezone_set("Asia/Kolkata");
-    	$success=\DB::table('task')->where('id',$task_id )->where('emp_id',$emp_id )->update(['status' => 'C','end_time' => date('Y-m-d H:i:s')]);
+    	$success=\DB::table('task')->where('id',$task_id )->update(['status' => 'C','end_time' => date('Y-m-d H:i:s')]);
     	if($success)
     	{
     		return true;

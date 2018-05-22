@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Main_M as Main_M;
+use App\Reply_M as Reply_M;
 use Session;
 class MainController extends Controller
 {
@@ -89,8 +90,16 @@ class MainController extends Controller
         $post=$request->all();
         // echo '<pre>';
         // print_r($post);die();
+        $data['reply']='Reopend: '.$post['reply'];
+        $data['task_id']=$post['h_taskId'];
+        $data['user_id']=$post['user_id'];
+        $data['type']='admin';
+        $data['created']=date('Y-m-d H:i:s');
+        $Reply_M= new Reply_M();
+        $result=$Reply_M->save_replies($data);
+
         $Main_M= new Main_M();
-        $result=$Main_M->save_reopen_reason($post['h_taskId'],$post['reason']);
+        $result=$Main_M->save_reopen_reason($post['h_taskId']);
         if($result)
         {
             Session::flash('success_msg', 'Task Reopend');

@@ -35,6 +35,7 @@ class ReplyController extends Controller
     // } 
     public function all_replies(Request $request)
     {
+        date_default_timezone_set("Asia/Kolkata");
         $post=$request->all();
         //$data=$post['emp_id'];
         //echo '<pre>';
@@ -56,27 +57,32 @@ class ReplyController extends Controller
             }
             $ename=explode(' ',$dbname);
             $name=$ename[0];
+
+            $dbtime=explode(' ',$value->created);
+            $time=date("G:i", strtotime($dbtime[1])).' '.date('d,F',strtotime($dbtime[0]));
+
+
             if(Session::get('type') == 'admin')
             {
                 if($value->type == 'admin' && $value->user_id == $post['admin_id'])
                 {
 
-                    $reply[]='<span style="color:rgb(125, 125, 125);margin-left:10px;margin-right:10px;" class="pull-right">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
+                    $reply[]='<span title="'.$time.'" style="color:rgb(125, 125, 125);margin-left:10px;margin-right:10px;" class="pull-right">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
                 }
                 else
                 {
-                    $reply[]='<span style="color:#17a2b8;margin-left:10px;margin-right:10px;" class="pull-left">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
+                    $reply[]='<span title="'.$time.'" style="color:#17a2b8;margin-left:10px;margin-right:10px;" class="pull-left">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
                 }
             }
             else if(Session::get('type') == 'employee')
             {
                 if($value->type == 'employee' && $value->user_id == $post['emp_id'])
                 {
-                    $reply[]='<span style="color:red;margin-left:10px;margin-right:10px;" class="pull-right">'.$value->reply.'</span><br />';
+                    $reply[]='<span title="'.$time.'" style="color:rgb(125, 125, 125);margin-left:10px;margin-right:10px;" class="pull-right">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
                 }
                 else
                 {
-                    $reply[]='<span style="color:blue;margin-left:10px;margin-right:10px;" class="pull-left">'.$value->reply.'</span><br />';
+                    $reply[]='<span title="'.$time.'" style="color:#17a2b8;margin-left:10px;margin-right:10px;" class="pull-left">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
                 }
             }
         }
@@ -86,6 +92,7 @@ class ReplyController extends Controller
     }
     public function reply_issue(Request $request)
     {
+        date_default_timezone_set("Asia/Kolkata");
         $post=$request->all();
         // echo '<pre>';
         // print_r($post);
@@ -104,7 +111,15 @@ class ReplyController extends Controller
         {
             Session::flash('error_msg', 'Reply not sent');
         }
-        return redirect()->action('MainController@all_tasks');
+        if(Session::get('type') == 'admin')
+        {
+            return redirect()->action('MainController@all_tasks');
+        }
+        else if(Session::get('type') == 'employee')
+        {
+            return redirect()->action('EmployeeController@my_tasks');
+        }
+        
     }
 }
 ?>

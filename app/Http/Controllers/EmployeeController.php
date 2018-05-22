@@ -71,20 +71,28 @@ class EmployeeController extends Controller
     	//echo $task_id;die();
     	if(Session::has('id'))
     	{
-    		$emp_id=Session::get('id');
+    		//$emp_id=Session::get('id');
     		$taskId=Crypt::decrypt($task_id);
     		$Employee_M = new Employee_M();
-    		$success=$Employee_M->end_task($taskId,$emp_id);
+    		$success=$Employee_M->end_task($taskId);
     		if($success == true)
     		{
     			Session::flash('success_msg', 'Task Completed');
-    			return redirect()->action('EmployeeController@my_tasks');
+    			
     		}
     		else
     		{
     			Session::flash('error_msg', 'Task Complete Failed');
-    			return redirect()->action('EmployeeController@my_tasks');
     		}
+
+            if(Session::get('type') == 'admin')
+            {
+                return redirect()->action('MainController@all_tasks');
+            }
+            else if(Session::get('type') == 'employee')
+            {
+                return redirect()->action('EmployeeController@my_tasks');
+            }
     	}
     } 
 }

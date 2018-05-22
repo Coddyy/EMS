@@ -37,6 +37,14 @@ use App\Main_M as Main_M;
 $Main_M= new Main_M();
 use App\Reply_M as Reply_M;
 $Reply_M= new Reply_M();
+
+if(Session::get('type') == 'employee')
+{
+  Session::flush();
+  return redirect()->action('LoginController@index');
+}
+
+
 if(Session::has('id')){ 
 
 //  echo '<pre>';
@@ -164,17 +172,18 @@ else if($value->status == 'R')
           <!--<p>Some text in the modal.</p>-->
           <form action="{{ route('reopenIssue') }}" method="POST">
             {{ csrf_field() }}
-              <textarea maxlength="120" rows="2" class="form-control" name="reason" required></textarea>
+              <textarea maxlength="120" rows="2" class="form-control" name="reply" required></textarea>
               <br />
               <input type="hidden" id="h_taskId1" value="" name="h_taskId" />
+              <input type="hidden" id="h_adminId" value="<?php echo Session::get('id');?>" name="user_id" />
               <input class="btn btn-info" type="submit" value="Reopen" />
           </form>
         </div>
         <div class="modal-footer">
+
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
-      
     </div>
   </div>
   <!-- Reply Modal -->
@@ -226,7 +235,9 @@ else if($value->status == 'R')
               <input class="btn btn-info pull-right" style="margin-top:-24px;float:right;" type="submit" value="Reply" />
           </form>
         </div>
+        <?php $taskID=Crypt::encrypt($value->id); ?>
         <div class="modal-footer">
+          <a href="{{ route('EndTask',$taskID) }}"><button type="button" class="btn btn-success" data-dismiss="modal">Close Issue</button></a>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>

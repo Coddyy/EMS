@@ -76,9 +76,9 @@ class Main_M extends Model
         $admin=\DB::table('admin')->where('id',$admin_id)->first();
         return $admin->name;
     }
-    public function save_reopen_reason($id,$reason)
+    public function save_reopen_reason($id)
     {
-        $success=\DB::table('task')->where('id',$id)->update(['reopen_reason' => $reason,'status' => 'R']);
+        $success=\DB::table('task')->where('id',$id)->update(['status' => 'R']);
         if($success)
         {
             return true;
