@@ -25,4 +25,16 @@ class Reply_M extends Model
     		return false;
     	}
     }
+    public function save_replies($data)
+    {
+        $success=\DB::table('conversation')->insert($data);
+        if($success)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

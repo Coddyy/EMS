@@ -61,22 +61,22 @@ class ReplyController extends Controller
                 if($value->type == 'admin' && $value->user_id == $post['admin_id'])
                 {
 
-                    $reply[]='<span style="color:rgb(125, 125, 125);" class="pull-right">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
+                    $reply[]='<span style="color:rgb(125, 125, 125);margin-left:10px;margin-right:10px;" class="pull-right">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
                 }
                 else
                 {
-                    $reply[]='<span style="color:#17a2b8;" class="pull-left">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
+                    $reply[]='<span style="color:#17a2b8;margin-left:10px;margin-right:10px;" class="pull-left">'.$value->reply.' &nbsp<span style="color:orange;font-size:10px;" class="pull-right"> '.$name.'</span></span><br />';
                 }
             }
             else if(Session::get('type') == 'employee')
             {
                 if($value->type == 'employee' && $value->user_id == $post['emp_id'])
                 {
-                    $reply[]='<span style="color:red" class="pull-right">'.$value->reply.'</span><br />';
+                    $reply[]='<span style="color:red;margin-left:10px;margin-right:10px;" class="pull-right">'.$value->reply.'</span><br />';
                 }
                 else
                 {
-                    $reply[]='<span style="color:blue" class="pull-left">'.$value->reply.'</span><br />';
+                    $reply[]='<span style="color:blue;margin-left:10px;margin-right:10px;" class="pull-left">'.$value->reply.'</span><br />';
                 }
             }
         }
@@ -84,14 +84,27 @@ class ReplyController extends Controller
 
         echo json_encode($data);
     }
-    public function reply_issue()
+    public function reply_issue(Request $request)
     {
+        $post=$request->all();
+        // echo '<pre>';
+        // print_r($post);
+        $data['reply']=$post['reply'];
+        $data['task_id']=$post['h_taskId'];
+        $data['user_id']=$post['user_id'];
+        $data['type']=$post['type'];
+        $data['created']=date('Y-m-d H:i:s');
         $Reply_M= new Reply_M();
-        $replies=$Reply_M->all_replies(11);
-        foreach ($replies as $key => $value) 
+        $result=$Reply_M->save_replies($data);
+        if($result)
         {
-            echo $value->reply;
+            Session::flash('success_msg', 'Reply sent');
         }
+        else
+        {
+            Session::flash('error_msg', 'Reply not sent');
+        }
+        return redirect()->action('MainController@all_tasks');
     }
 }
 ?>

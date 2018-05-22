@@ -177,8 +177,6 @@ else if($value->status == 'R')
       
     </div>
   </div>
-
-<button onclick="myFunction()">Click</button>
   <!-- Reply Modal -->
 <!-- 
 <button data-toggle="modal" data-target="#myModal1">Click</button> -->
@@ -191,19 +189,40 @@ else if($value->status == 'R')
         <div class="modal-header">
           <h5 class="modal-title">Conversation</h5>
         </div>
+        <style type="text/css">
+            #style-4::-webkit-scrollbar-track
+            {
+              -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
+              background-color: #F5F5F5;
+            }
+
+            #style-4::-webkit-scrollbar
+            {
+              width: 10px;
+              background-color: #F5F5F5;
+            }
+
+            #style-4::-webkit-scrollbar-thumb
+            {
+              background-color: #000000;
+              border: 2px solid #555555;
+            }
+        </style>
         <div class="modal-body" align="center">
-          <p id="demo" style="height:200px;">
+        <p style="overflow: hidden;">
+          <p id="demo" class="scrollbar" style="height:200px;overflow-y: scroll;padding-right: 5px;">
             
           
-
           </p>
+        </p>
           <form action="{{ route('replyIssue') }}" method="POST">
             {{ csrf_field() }}
               <!-- <textarea maxlength="120" class="form-control" name="reason" required></textarea> -->
-              <input type="text" maxlength="120" style="float:left;width:80%;" class="form-control" name="reason" required />&nbsp&nbsp
+              <input type="text" maxlength="60" style="float:left;width:80%;" class="form-control" name="reply" required />&nbsp&nbsp
               <br />
+              <input type="hidden" name="type" value="admin" />
               <input type="hidden" id="h_taskId2" value="" name="h_taskId" />
-              <input type="hidden" id="h_adminId" value="<?php echo Session::get('id');?>" name="h_adminId" />
+              <input type="hidden" id="h_adminId" value="<?php echo Session::get('id');?>" name="user_id" />
               <input class="btn btn-info pull-right" style="margin-top:-24px;float:right;" type="submit" value="Reply" />
           </form>
         </div>
