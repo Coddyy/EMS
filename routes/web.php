@@ -45,6 +45,8 @@ Route::get('allReplies','ReplyController@all_replies')->name('allReplies');
 Route::get('closeTask','MainController@close_task')->name('closeTask');
 Route::get('addModule','MainController@add_module')->name('addModule');
 Route::post('insertModule','MainController@insert_module')->name('insertModule');
+
+Route::get('isAlreadyAssigned','MainController@isAlreadyAssigned')->name('isAlreadyAssigned');
 //End Dashboard
 
 //Login

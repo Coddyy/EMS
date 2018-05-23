@@ -155,6 +155,21 @@ class MainController extends Controller
         }
        return redirect()->action('MainController@add_module');
     }
+    public function isAlreadyAssigned(Request $request)
+    {
+        $post=$request->all();
+        $module_id=$post['module_id'];
+        $emp_id=$post['emp_id'];
+        $result=\DB::table('task')->where('module_id',$module_id)->where('emp_id',$emp_id)->count();
+        if($result > 0)
+        {
+            echo json_encode(1);
+        }
+        else
+        {
+            echo json_encode(0);
+        }
+    }
     
 }
 ?>

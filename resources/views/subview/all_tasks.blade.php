@@ -67,8 +67,8 @@ if(Session::has('id')){
   <table class="table table-striped" >
       <thead>
           <tr>
-            <th style="width:6%;">ID</th>
-            <th style="width:24%;">Task</th>
+            <th style="width:6%;">MID</th>
+            <th style="width:23.9%;">Task</th>
             <th style="width:9%;">Issued On</th>
             <th style="width:15.5%;">Employee</th>
             <th style="width:8%;">Hours</th>
@@ -128,7 +128,7 @@ else if($value->status == 'R')
 }
 ?>
           <tr>
-              <td style="width:6%;"><?php echo $value->id;?> </td>
+              <td style="width:6%;"><?php echo $value->module_id;?> </td>
               <td style="width:24%;"><?php echo $value->task;?> </td>
               <td style="width:9%;"><?php echo date('d F y',strtotime($date));?></td>
               <td style="width:15.5%;"><?php echo $employee_name;?></td>
@@ -315,7 +315,7 @@ function end_task()
           
             // var val = $.parseJSON(data);
             // console.log(val);
-            window.location='{{ route("allTasks")}}';
+            window.location='{{ route("allTasks") }}';
         },
     });
 }

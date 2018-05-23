@@ -17,6 +17,7 @@
 use App\Main_M as Main_M;
 $Main_M = new Main_M();
 $employee=$Main_M->all_non_asigned_employees(); 
+$module=$Main_M->get_all_modules();
 if(Session::has('id')){ 
 
 //  echo '<pre>';
@@ -47,7 +48,24 @@ if(Session::has('id')){
 						<input type="number" class="form-control" id="mobile" name="hours" placeholder="Time in hours" required>
 					</div>
                     <div class="form-group">
-                        <select name="emp_id" class="form-control">
+                        <select name="module_id" id="module_id" onchange="checkEmployee()" class="form-control">
+                            <option value="">--Select Module--</option>
+                            <?php 
+                            // echo '<pre>';
+                            // print_r($employee);//die();
+                            foreach ($module as $key => $value) 
+                            { ?>
+
+                                <option value="<?php echo $value->id;?>"><?php echo $value->module;?></option>
+
+                            <?php } ?>
+                            ?>
+                        </select>
+                        <span id="empty_err" style="color:red;display: none;">Please select a module</span>
+                        
+                    </div>
+                    <div class="form-group">
+                        <select name="emp_id" id="emp_id" onchange="checkEmployee()" class="form-control">
                             <option value="">--Select Employee--</option>
                             <?php 
                             // echo '<pre>';
@@ -60,8 +78,9 @@ if(Session::has('id')){
                             <?php } ?>
                             ?>
                         </select>
+                        <span id="alreadyexist_err" style="color:red;display: none;">Employee Already Assigned</span>
                     </div>
-            
+                    
         <button type="submit" id="submit" name="submit" class="btn btn-primary pull-right">Asign</button>
         </form>
     </div>
@@ -86,6 +105,47 @@ if(Session::has('id')){
         }
     });    
 });
+
+    function checkEmployee()
+    {
+        var module_id=$('#module_id').val();
+        var emp_id=$('#emp_id').val();
+        // alert(emp_id);
+        // alert(module_id);
+        if(module_id == '')
+        {
+            $('#empty_err').show();
+            $('#emp_id').val("");
+        }
+        else
+        {
+            $('#empty_err').hide();
+            if(emp_id != '')
+            {
+                $.ajax({
+                    url: '{{ route("isAlreadyAssigned") }}',
+                    type: 'GET',
+                    data: {module_id: module_id,emp_id:emp_id ,_csrf: '{{ csrf_field() }}'},
+                    success: function(data){
+                      
+                        var val = $.parseJSON(data);
+                        //console.log(val);
+                        if(val == '0')
+                        {
+                            $('#alreadyexist_err').hide();
+                        }
+                        else
+                        {
+                            $('#alreadyexist_err').show();
+                            $('#emp_id').val("");
+                        }
+
+                    },
+                });
+            }
+        }
+        
+    }
 
 </script>
   <?php } else { 

@@ -56,7 +56,7 @@ class Main_M extends Model
     {
         // echo '<pre>';
         // print_r($data);die();
-        $success=\DB::table('task')->insert(['emp_id'=>$data['emp_id'],'task'=>$data['task'],'hours'=>$data['hours'],'created' => date('Y-m-d H:i:s'),'status'=>'P']);
+        $success=\DB::table('task')->insert(['emp_id'=>$data['emp_id'],'task'=>$data['task'],'hours'=>$data['hours'],'module_id'=> $data['module_id'],'created' => date('Y-m-d H:i:s'),'status'=>'P']);
         if($success)
         {
             return true;
@@ -102,4 +102,19 @@ class Main_M extends Model
             return false;
         }
     }
+    public function get_all_modules()
+    {
+        // echo '<pre>';
+        // print_r($data);die();
+        $success=\DB::table('module')->orderBy('created','DESC')->get();
+        if($success)
+        {
+            return $success;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
+?>
