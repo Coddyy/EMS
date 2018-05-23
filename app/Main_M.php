@@ -24,6 +24,20 @@ class Main_M extends Model
     		return false;
     	}
     }
+    public function module_insert($data)
+    {
+        // echo '<pre>';
+        // print_r($data);
+        $success=\DB::table('module')->insert($data);
+        if($success)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
     public function all_non_asigned_employees()
     {
         $success=\DB::table('employee')->where('working_status' ,'0')->get();

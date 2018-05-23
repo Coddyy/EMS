@@ -42,6 +42,9 @@ Route::post('reopenIssue','MainController@reopen_issue')->name('reopenIssue');
 Route::post('replyIssue','ReplyController@reply_issue')->name('replyIssue');
 Route::get('allReplies','ReplyController@all_replies')->name('allReplies');
 
+Route::get('closeTask','MainController@close_task')->name('closeTask');
+Route::get('addModule','MainController@add_module')->name('addModule');
+Route::post('insertModule','MainController@insert_module')->name('insertModule');
 //End Dashboard
 
 //Login

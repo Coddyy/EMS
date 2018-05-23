@@ -235,9 +235,9 @@ else if($value->status == 'R')
               <input class="btn btn-info pull-right" style="margin-top:-24px;float:right;" type="submit" value="Reply" />
           </form>
         </div>
-        <?php $taskID=Crypt::encrypt($value->id); ?>
+        
         <div class="modal-footer">
-          <a href="{{ route('EndTask',$taskID) }}"><button type="button" class="btn btn-success" data-dismiss="modal">Close Issue</button></a>
+          <button onclick="end_task()" type="button" class="btn btn-success" >Close Issue</button>
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
         </div>
       </div>
@@ -302,6 +302,22 @@ else if($value->status == 'R')
 function getFullName(item) {
     var fullname = [item.reply];//,item.emp_id];.join(" ");
     return fullname;
+}
+function end_task()
+{
+    var task_id=$('#h_taskId2').val();
+    //alert(task_id);
+    $.ajax({
+        url: '{{ route("closeTask") }}',
+        type: 'GET',
+        data: {task_id: task_id ,_csrf: '{{ csrf_field() }}'},
+        success: function(data){
+          
+            // var val = $.parseJSON(data);
+            // console.log(val);
+            window.location='{{ route("allTasks")}}';
+        },
+    });
 }
 
 

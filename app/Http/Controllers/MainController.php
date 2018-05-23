@@ -46,6 +46,7 @@ class MainController extends Controller
     {
         // echo '<pre>';
         // print_r($_POST);
+
         $post=$request->all();
         $Main_M= new Main_M();
         $result=$Main_M->employee_insert($post);
@@ -87,6 +88,7 @@ class MainController extends Controller
     }
     public function reopen_issue(Request $request)
     {
+        date_default_timezone_set("Asia/Kolkata");
         $post=$request->all();
         // echo '<pre>';
         // print_r($post);die();
@@ -109,6 +111,49 @@ class MainController extends Controller
             Session::flash('error_msg', 'Task Reopen Failed!');
         }
        return redirect()->action('MainController@all_tasks');
+    }
+    public function close_task(Request $request)
+    {
+        date_default_timezone_set("Asia/Kolkata");
+        $post=$request->all();
+        //echo '<pre>';
+        //echo json_encode($post);//die();
+        $success=\DB::table('task')->where('id',$post['task_id'] )->update(['status' => 'C','end_time' => date('Y-m-d H:i:s')]);
+        if($success)
+        {
+            Session::flash('success_msg', 'Task Closed');
+        }
+        else
+        {
+            Session::flash('error_msg', 'Task Close Failed!');
+        }
+       return redirect()->action('MainController@all_tasks');
+    }
+    public function add_module()
+    {
+        $data['subview']=view('subview.add_module');
+        return view('project_dashboard',$data);
+    }
+    public function insert_module(Request $request)
+    {
+        date_default_timezone_set("Asia/Kolkata");
+        $post=$request->all();
+        // echo '<pre>';
+        // print_r($post);die();
+        $data['module']=$post['module'];
+        $data['hours']=$post['hours'];
+        $data['created']=Date('Y-m-d H:i:s');
+        $Main_M= new Main_M();
+        $result=$Main_M->module_insert($data);
+        if($result)
+        {
+            Session::flash('success_msg', 'Module Added');
+        }
+        else
+        {
+            Session::flash('error_msg', 'Module not added!');
+        }
+       return redirect()->action('MainController@add_module');
     }
     
 }
