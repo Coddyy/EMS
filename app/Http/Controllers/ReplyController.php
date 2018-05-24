@@ -42,7 +42,7 @@ class ReplyController extends Controller
         //echo $post['admin_id'];die();
         $Main_M= new Main_M();
         $Reply_M= new Reply_M();
-        $replies=$Reply_M->all_replies($post['task_id'],$post['emp_id'],$post['admin_id']);
+        $replies=$Reply_M->all_replies($post['module_id']);
         // echo json_encode($replies);die();
         $reply=array();
         foreach ($replies as $key => $value) 
@@ -95,9 +95,10 @@ class ReplyController extends Controller
         date_default_timezone_set("Asia/Kolkata");
         $post=$request->all();
         // echo '<pre>';
-        // print_r($post);
+        // print_r($post);die();
         $data['reply']=$post['reply'];
         $data['task_id']=$post['h_taskId'];
+        $data['module_id']=$post['h_moduleId'];
         $data['user_id']=$post['user_id'];
         $data['type']=$post['type'];
         $data['created']=date('Y-m-d H:i:s');

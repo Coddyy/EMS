@@ -95,6 +95,7 @@ class MainController extends Controller
         $data['reply']='Reopend: '.$post['reply'];
         $data['task_id']=$post['h_taskId'];
         $data['user_id']=$post['user_id'];
+        $data['module_id']=$post['h_moduleId'];
         $data['type']='admin';
         $data['created']=date('Y-m-d H:i:s');
         $Reply_M= new Reply_M();

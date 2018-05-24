@@ -10,10 +10,10 @@ class Reply_M extends Model
     {
     	echo "Hi I am model";
     }
-    public function all_replies($task_id,$emp_id=NULL,$admin_id=NULL)
+    public function all_replies($module_id)
     {
     	//echo $task_id;die();
-    	$result=\DB::table('conversation')->where('task_id',$task_id)->get();
+    	$result=\DB::table('conversation')->where('module_id',$module_id)->get();
     	// echo '<pre>';
      // 	print_r($result);die();
     	if($result)

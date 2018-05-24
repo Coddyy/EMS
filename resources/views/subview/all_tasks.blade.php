@@ -137,12 +137,12 @@ else if($value->status == 'R')
                 <span style="background-color:<?php echo $bgcolor;?>;border-radius:4px;color:white">&nbsp<?php echo $status;?>&nbsp</span>
                 <?php if($value->status == 'C')
                       {
-                        echo '<a onclick="put_value_modal1(this)" data-id='.$value->id.' data-toggle="modal" data-target="#myModal" href="#" title="Reopen Issue">
+                        echo '<a onclick="put_value_modal1(this)" data-module_id='.$value->module_id.' data-id='.$value->id.' data-toggle="modal" data-target="#myModal" href="#" title="Reopen Issue">
                                 <i class="fa fa-caret-square-o-up"></i>
                               </a>';
                       } else if($value->status == 'R')
                       {
-                        echo '<a onclick="put_value_modal2(this)" data-id='.$value->id.' data-emp_id='.$value->emp_id.' data-toggle="modal" data-target="#myModal1" href="#" title="Reopen Issue">
+                        echo '<a onclick="put_value_modal2(this)" data-id='.$value->id.' data-module_id='.$value->module_id.' data-emp_id='.$value->emp_id.' data-toggle="modal" data-target="#myModal1" href="#" title="Reopen Issue">
                                 <i style="color:orange;" class="fa fa-exclamation-circle"></i>
                               </a>';
                               $replies=$Reply_M->all_replies($value->id);
@@ -175,6 +175,7 @@ else if($value->status == 'R')
               <textarea maxlength="120" rows="2" class="form-control" name="reply" required></textarea>
               <br />
               <input type="hidden" id="h_taskId1" value="" name="h_taskId" />
+              <input type="hidden" id="h_moduleId1" value="" name="h_moduleId" />
               <input type="hidden" id="h_adminId" value="<?php echo Session::get('id');?>" name="user_id" />
               <input class="btn btn-info" type="submit" value="Reopen" />
           </form>
@@ -231,6 +232,7 @@ else if($value->status == 'R')
               <br />
               <input type="hidden" name="type" value="admin" />
               <input type="hidden" id="h_taskId2" value="" name="h_taskId" />
+              <input type="hidden" id="h_moduleId2" value="" name="h_moduleId" />
               <input type="hidden" id="h_adminId" value="<?php echo Session::get('id');?>" name="user_id" />
               <input class="btn btn-info pull-right" style="margin-top:-24px;float:right;" type="submit" value="Reply" />
           </form>
@@ -261,24 +263,29 @@ else if($value->status == 'R')
   function put_value_modal1(val)
   {
     // alert('ok');
-    var id=$(val).attr('data-id');
-    //alert(id);
-    $('#h_taskId1').val(id);
+    var task_id=$(val).attr('data-id');
+     var module_id=$(val).attr('data-module_id');
+    //alert(module_id);
+    $('#h_taskId1').val(task_id);
+    $('#h_moduleId1').val(module_id);
   }
   function put_value_modal2(val)
   {
     // alert('ok');
     var task_id=$(val).attr('data-id');
     var emp_id=$(val).attr('data-emp_id');
+    var module_id=$(val).attr('data-module_id');
     var admin_id=<?php echo Session::get('id') ?>;
-    //alert(admin_id);
-    var fieldId='#task_id'+task_id;
+    //alert(module_id);
+    // var fieldId='#task_id'+task_id;
 
     $('#h_taskId2').val(task_id);
+    $('#h_moduleId2').val(module_id);
+
     $.ajax({
         url: '{{ route("allReplies") }}',
         type: 'GET',
-        data: {task_id: task_id , emp_id:emp_id,admin_id:admin_id ,_csrf: '{{ csrf_field() }}'},
+        data: {module_id:module_id,task_id: task_id , emp_id:emp_id,admin_id:admin_id ,_csrf: '{{ csrf_field() }}'},
         success: function(data){
           
             var val = $.parseJSON(data);
