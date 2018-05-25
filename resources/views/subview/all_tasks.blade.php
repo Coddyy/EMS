@@ -89,6 +89,9 @@ $employee_name=$Main_M->get_employee_name($value->emp_id);
 $dbdate=explode(' ',$value->created);
 $date=$dbdate[0];
 
+// $hourdiff = round((strtotime($value->end_time) - strtotime($value->start_time))/60, 0);
+// echo ($value->hours * 60).'>>>>>>'.$hourdiff.'<br />';
+
 if($value->start_time){
 
 $dbstime=explode(' ',$value->start_time);
@@ -129,7 +132,20 @@ else if($value->status == 'R')
 ?>
           <tr>
               <td style="width:6%;"><?php echo $value->module_id;?> </td>
-              <td style="width:24%;"><?php echo $value->task;?> </td>
+              <td style="width:24%;font-family: sans-serif;">
+                <?php 
+
+                    $taken_mins = round((strtotime($value->end_time) - strtotime($value->start_time))/60, 0);
+                    $given_mins=($value->hours * 60);
+                    if(($given_mins - $taken_mins) < 0)
+                    {
+                      $delaymins=($given_mins - $taken_mins) * (-1);
+                      $hours = floor($delaymins / 60).'Hrs,'.($delaymins -   floor($delaymins / 60) * 60).'Mins';
+                      echo '<i style="color:red;" title='.$hours.' class="fa fa-level-down"></i>';
+                    }
+                      echo '  '.$value->task;
+                ?> 
+              </td>
               <td style="width:9%;"><?php echo date('d F y',strtotime($date));?></td>
               <td style="width:15.5%;"><?php echo $employee_name;?></td>
               <td style="width:8%;"><?php echo $value->hours;?></td>
