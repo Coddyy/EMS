@@ -92,16 +92,20 @@ class MainController extends Controller
         $post=$request->all();
         // echo '<pre>';
         // print_r($post);die();
-        $data['reply']='Reopend: '.$post['reply'];
+        $Main_M= new Main_M();
+        $Reply_M= new Reply_M();
+        $emp_id=$Main_M->get_employee_id($post['h_taskId']);
+        $employee_name=$Main_M->get_employee_name($emp_id);
+        //echo $employee_name;exit();
+        $data['reply']='Reopend[ '.$employee_name.' ]: '.$post['reply'];
         $data['task_id']=$post['h_taskId'];
         $data['user_id']=$post['user_id'];
         $data['module_id']=$post['h_moduleId'];
         $data['type']='admin';
         $data['created']=date('Y-m-d H:i:s');
-        $Reply_M= new Reply_M();
-        $result=$Reply_M->save_replies($data);
 
-        $Main_M= new Main_M();
+        $result=$Reply_M->save_replies($data);
+        
         $result=$Main_M->save_reopen_reason($post['h_taskId']);
         if($result)
         {
@@ -119,7 +123,16 @@ class MainController extends Controller
         $post=$request->all();
         //echo '<pre>';
         //echo json_encode($post);//die();
-        $success=\DB::table('task')->where('id',$post['task_id'] )->update(['status' => 'C','end_time' => date('Y-m-d H:i:s')]);
+        // $success=\DB::table('task')->where('id',$post['task_id'] )->update(['status' => 'C','end_time' => date('Y-m-d H:i:s')]);
+
+        $time=\DB::table('task')->where('id',$post['task_id'])->first();
+        $end_date=date('Y-m-d H:i:s');
+
+        $total_mins_taken=round((strtotime($end_date) - strtotime($time->start_time))/60, 0);
+
+        $success=\DB::table('task')->where('id',$post['task_id'])->update(['status' => 'C','end_time' => $end_date,'total_time' => ($time->total_time + $total_mins_taken)]);
+
+
         if($success)
         {
             Session::flash('success_msg', 'Task Closed');
@@ -170,6 +183,11 @@ class MainController extends Controller
         {
             echo json_encode(0);
         }
+    }
+    public function all_modules()
+    {
+        $data['subview']=view('subview.all_modules');
+        return view('project_dashboard',$data);
     }
     
 }

@@ -40,7 +40,13 @@ class Employee_M extends Model
     public function end_task($task_id)
     {
     	date_default_timezone_set("Asia/Kolkata");
-    	$success=\DB::table('task')->where('id',$task_id )->update(['status' => 'C','end_time' => date('Y-m-d H:i:s')]);
+
+        $time=\DB::table('task')->where('id',$task_id)->first();
+        $end_date=date('Y-m-d H:i:s');
+
+        $total_mins_taken=round((strtotime($end_date) - strtotime($time->start_time))/60, 0);
+
+    	$success=\DB::table('task')->where('id',$task_id )->update(['status' => 'C','end_time' => $end_date,'total_time' => ($time->total_time + $total_mins_taken)]);
     	if($success)
     	{
     		return true;

@@ -85,6 +85,11 @@ class Main_M extends Model
         $emp=\DB::table('employee')->where('id',$emp_id)->first();
         return $emp->name;
     }
+    public function get_employee_id($task_id)
+    {
+        $emp=\DB::table('task')->where('id',$task_id)->first();
+        return $emp->emp_id;
+    }
      public function get_admin_name($admin_id)
     {
         $admin=\DB::table('admin')->where('id',$admin_id)->first();
