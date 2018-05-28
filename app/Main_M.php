@@ -121,5 +121,29 @@ class Main_M extends Model
             return false;
         }
     }
+    public function count_tasks($module_id)
+    {
+        $success=\DB::table('task')->where('module_id',$module_id)->count();
+        if($success > 0)
+        {
+            return $success;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public function count_completed_tasks($module_id)
+    {
+        $success=\DB::table('task')->where('status','C')->where('module_id',$module_id)->count();
+        if($success > 0)
+        {
+            return $success;
+        }
+        else
+        {
+            return 0;
+        }
+    }
 }
 ?>

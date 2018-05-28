@@ -1,6 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
 <style type="text/css">
   table {
     width: 50%;
@@ -29,7 +30,30 @@ tr:after {
     display: block;
     visibility: hidden;
 }
-</style>
+                .progress {
+                    /*height: 35px;*/
+                    background-color: #726e6e;
+                  }
+                  .progress .skill {
+                    font: normal 12px "Open Sans Web";
+                    line-height: 35px;
+                    padding: 0;
+                    margin: 0 0 0 20px;
+                    text-transform: uppercase;
+                  }
+                  .progress .skill .val {
+                    float: right;
+                    font-style: normal;
+                    margin: 0 20px 0 0;
+                  }
+
+                  .progress-bar {
+                    text-align: left;
+                    transition-duration: 3s;
+
+                  }
+
+              </style>
 
 <?php 
 
@@ -97,26 +121,33 @@ $date=$dbdate[0];
               <td style="width:9%;"><?php echo date('d F y',strtotime($date));?></td>
               <td style="width:8%;"><?php echo $value->hours;?></td>
               <!-- <td>
-                <span style="background-color:<?php echo $bgcolor;?>;border-radius:4px;color:white">&nbsp<?php echo $status;?>&nbsp</span>
-                <?php if($value->status == 'C')
-                      {
-                        echo '<a onclick="put_value_modal1(this)" data-module_id='.$value->module_id.' data-id='.$value->id.' data-toggle="modal" data-target="#myModal" href="#" title="Reopen Issue">
-                                <i class="fa fa-caret-square-o-up"></i>
-                              </a>';
-                      } else if($value->status == 'R')
-                      {
-                        echo '<a onclick="put_value_modal2(this)" data-id='.$value->id.' data-module_id='.$value->module_id.' data-emp_id='.$value->emp_id.' data-toggle="modal" data-target="#myModal1" href="#" title="Reopen Issue">
-                                <i style="color:orange;" class="fa fa-exclamation-circle"></i>
-                              </a>';
-                              $replies=$Reply_M->all_replies($value->id);
-                              $task_id='task_id'.$value->id;
-                              // echo '<pre>';
-                              // print_r(json_encode($replies)); 
-                              ?>
-                        <!-- echo '<input type="hidden" id="task_id-'.$value->id.'" value="'.json_encode($replies).'" />'; 
-                        <input type="hidden" id="<?php echo $task_id;?>" value="<?php print_r(json_encode($replies)); ?>" />
-                      <?php } ?>
+                <span style="background-color:<?php //echo $bgcolor;?>;border-radius:4px;color:white">&nbsp<?php //echo $status;?>&nbsp</span>
+                <?php 
+                        //echo '<a onclick="put_value_modal2(this)" data-id='.$value->id.' data-module_id='.$value->module_id.' data-emp_id='.$value->emp_id.' data-toggle="modal" data-target="#myModal1" href="#" title="Reopen Issue">
+                              //   <i style="color:orange;" class="fa fa-exclamation-circle"></i>
+                              // </a>';
+                              // $replies=$Reply_M->all_replies($value->id);
+                              // $task_id='task_id'.$value->id;
+                              // // echo '<pre>';
+                              // // print_r(json_encode($replies)); 
+                              // ?>
+                        
               </td> -->
+              <td style="width:44%;">
+              <div class="progress skill-bar ">
+              <?php 
+                $total_tasks=$Main_M->count_tasks($value->id);
+                $completed_tasks=$Main_M->count_completed_tasks($value->id);
+
+                $calstatus=round((($completed_tasks / $total_tasks) * 100),0);
+                //echo $calstatus;
+
+              ?>
+                <div class="progress-bar progress-bar-success" style="background-color: green;" role="progressbar" aria-valuenow="<?php echo $calstatus;?>" aria-valuemin="0" aria-valuemax="100">
+                    <span align="center" class="skill"><?php echo $calstatus;?>%</span>
+                </div>
+                
+              </td>
           </tr>
 
             <!-- Reopen Reason Modal -->
@@ -217,7 +248,15 @@ $date=$dbdate[0];
   
   
 
-
+<script type="text/javascript">
+                      $(document).ready(function() {
+                          $('.progress .progress-bar').css("width",
+                                    function() {
+                                        return $(this).attr("aria-valuenow") + "%";
+                                    }
+                            )
+                        });
+                </script>
 
 <script type="text/javascript">
   
