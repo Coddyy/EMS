@@ -61,7 +61,7 @@
                   <a class="nav-link" href="{{ route('asignTask') }}">Asign Task</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ route('allTasks') }}">View Tasks</a>
+                  <a class="nav-link" href="{{ route('allModules') }}">View Modules</a>
                 </li>
 
           <?php } else if(Session::get('type') == 'employee') 

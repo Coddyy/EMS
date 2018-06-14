@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use App\Main_M as Main_M;
 use App\Reply_M as Reply_M;
 use Session;
+use Illuminate\Support\Facades\Crypt;
 class MainController extends Controller
 {
     public function __construct()
@@ -81,8 +82,13 @@ class MainController extends Controller
         }
        return redirect()->action('MainController@asign_task');
     } 
-    public function all_tasks()
+    public function all_tasks(Request $request)
     {
+        // $post=$request->all();
+        // //print_r($post);
+        // $module_id=Crypt::decrypt($post['id']);
+        //die();
+        //$data['module_id']=$module_id;
         $data['subview']=view('subview.all_tasks');
         return view('project_dashboard',$data);
     }

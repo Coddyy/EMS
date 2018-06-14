@@ -1,7 +1,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
 <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
+<?php use Illuminate\Support\Facades\Crypt; ?>
 <style type="text/css">
   table {
     width: 50%;
@@ -95,7 +95,8 @@ if(Session::has('id')){
             <th style="width:23.9%;">Module</th>
             <th style="width:9%;">Issued On</th>
             <th style="width:8%;">Hours</th>
-            <th>Status</th>
+            <th style="width:36%;">Status</th>
+            <th style="width:16%;">View</th>
           </tr>
       </thead>
       <tbody>
@@ -133,7 +134,7 @@ $date=$dbdate[0];
                               // ?>
                         
               </td> -->
-              <td style="width:44%;">
+              <td style="width:36%;">
               <div class="progress skill-bar ">
               <?php 
                 $total_tasks=$Main_M->count_tasks($value->id);
@@ -146,10 +147,17 @@ $date=$dbdate[0];
                 <div class="progress-bar progress-bar-success" style="background-color: green;" role="progressbar" aria-valuenow="<?php echo $calstatus;?>" aria-valuemin="0" aria-valuemax="100">
                     <span align="center" class="skill"><?php echo $calstatus;?>%</span>
                 </div>
-                
+              </div>
               </td>
-          </tr>
+              <td style="margin-left: -15px;">
+                  <?php echo '<a onclick="put_value_modal2(this)" data-id='.$value->id.' data-toggle="modal" data-target="#myModal1" href="#" title="Reopen Issue">
+                                <i style="color:orange;" class="fa fa-exclamation-circle"></i>
+                              </a>'; ?>
 
+              </td>
+              <?php $moduleID=Crypt::encrypt($value->id); ?>
+              <td style="margin-left: -100px;"><a href="{{ route('allTasks',['id' => $moduleID]) }}"><button class="btn-small btn-info">View</button></a></td>
+          </tr>
             <!-- Reopen Reason Modal -->
 
   <div class="modal fade" id="myModal" role="dialog">
