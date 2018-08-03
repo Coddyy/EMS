@@ -1,0 +1,1 @@
+<img src="<?php echo baseurl();?>assets/images/We_are_working_on_it_CADnaukri.gif" />

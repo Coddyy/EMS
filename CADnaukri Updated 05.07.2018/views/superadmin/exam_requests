@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>CADnaukri_table</title>
+  <meta charset="CADnaukri">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <style type="text/css">
+    .thstyle{
+      text-align: center;
+      background-color: #37a0ff;
+      color: #fff;
+      box-shadow: 1px 1px 1px 1px;
+
+    }
+    tbody.td{margin-left: 20px;
+
+    }
+
+    table {
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    border: 1px solid #ddd;
+}
+
+th, td {
+    text-align: left;
+    padding: 16px;
+}
+
+tr:nth-child(even) {
+    background-color: #f2f2f2
+}
+
+  </style>
+<div class="container" style="border: 0px solid red;">
+  <div class="row" style="background-color: #0055a4; color: #fff;"><h4>  Table:</h4>
+  
+  </div>
+  <div class="row" >	<table class="table table-bordered" >
+    <thead-dark>
+      <tr>
+        <th class="thstyle">Test ID</th>
+        <th class="thstyle">Company Name</th>
+        <!-- <th class="thstyle">Sponsored</th> -->
+        <th class="thstyle">Test Date</th>
+        <th class="thstyle">Examinee</th>
+        <th class="thstyle">E-mail</th>
+        <th class="thstyle">Mobile</th>
+        <th class="thstyle">Score</th>
+        <th class="thstyle">Score Sheet</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr >
+        <td>John</td>
+        <td>Delloite</td>
+        <!-- <td>john@example.com</td> -->
+        <td>Design eng.</td>
+        <td>12th june</td>
+        <td>edited</td>
+        <td>edited</td>
+        <td>edited</td>
+        <td><button class="btn btn-info">Score Sheet</button></td>
+      </tr>
+      
+
+    </tbody>
+  </table>
+  </div>
+</body>
