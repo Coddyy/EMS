@@ -48,8 +48,6 @@ Route::post('insertModule','MainController@insert_module')->name('insertModule')
 
 Route::get('isAlreadyAssigned','MainController@isAlreadyAssigned')->name('isAlreadyAssigned');
 Route::get('allModules','MainController@all_modules')->name('allModules');
-
-
 //End Dashboard
 
 //Login

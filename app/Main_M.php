@@ -66,11 +66,11 @@ class Main_M extends Model
             return false;
         }
     }
-    public function get_all_tasks($module_id)
+    public function get_all_tasks()
     {
         // echo '<pre>';
         // print_r($data);die();
-        $success=\DB::table('task')->orderBy('created','DESC')->where('module_id',$module_id)->get();
+        $success=\DB::table('task')->orderBy('created','DESC')->get();
         if($success)
         {
             return $success;

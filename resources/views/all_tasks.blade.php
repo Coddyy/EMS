@@ -45,9 +45,6 @@ if(Session::has('id')){
 
 ?>
 <div class="container">
-111
-<?php $var=Request::segment(0);
-      echo $var; ?>
   <div class="row">
     <h2>All Tasks</h2>
   </div>
