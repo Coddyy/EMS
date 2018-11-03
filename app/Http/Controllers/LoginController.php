@@ -15,10 +15,12 @@ class LoginController extends Controller
     public function index()
     {
     	//echo md5('Abhra');
+        //echo md5('Abhra');exit();
         return view('login');
     }
     public function login(Request $request)
     {
+
     	$post=$request->all();
     	// echo '<pre>';
     	// print_r($post);

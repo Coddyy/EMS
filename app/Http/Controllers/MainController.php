@@ -13,6 +13,7 @@ class MainController extends Controller
     }
     public function index()
     {
+        
         // echo '<pre>';
         // print_r(Session::all());die();
         if(Session::has('id'))
