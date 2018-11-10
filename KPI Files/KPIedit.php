@@ -1,4 +1,6 @@
 <?php 
+
+//Testing
 use App\Models\Authority;
 /*$authority  = DB::table('authorities')
             ->get();
